@@ -4,6 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 import { buildBlogIndexPath, buildBlogPostPath, formatBlogDate, getPublishedBlogPosts, getReadingTimeMinutes, getRelatedPosts } from '../../../lib/blog';
+import { BRAND_LOGO, DEFAULT_OG_IMAGE, SITE_URL, absoluteUrl } from '../../../config/site';
 
 export async function getStaticPaths() {
   const posts = await getPublishedBlogPosts('en');
@@ -21,12 +22,12 @@ interface Props {
 
 const { post, posts } = Astro.props;
 const { Content } = await post.render();
-const site = Astro.site?.href || 'https://repero.ai';
+const site = SITE_URL;
 const canonicalPath = buildBlogPostPath(post);
 const canonical = new URL(canonicalPath, site).href;
 const frenchPath = post.data.translationOf ? `/fr/blog/${post.data.translationOf}` : undefined;
 const alternates = frenchPath ? [{ lang: 'fr' as const, href: new URL(frenchPath, site).href }] : [];
-const postImage = post.data.image ? new URL(post.data.image, site).href : undefined;
+const postImage = absoluteUrl(post.data.image ?? DEFAULT_OG_IMAGE);
 const relatedPosts = getRelatedPosts(post, posts);
 const readingTime = getReadingTimeMinutes(post.body);
 const publishedTime = post.data.pubDate.toISOString();
@@ -51,7 +52,7 @@ const schema = {
     name: 'Repero AI',
     logo: {
       '@type': 'ImageObject',
-      url: new URL('/brand/repero-icon.svg', site).href
+      url: absoluteUrl(BRAND_LOGO)
     }
   },
   mainEntityOfPage: canonical,
@@ -66,7 +67,7 @@ const schema = {
   alternates={alternates}
   ogType="article"
   twitterCard="summary_large_image"
-  ogImage={post.data.image}
+  ogImage={post.data.image ?? DEFAULT_OG_IMAGE}
   article={{
     publishedTime,
     modifiedTime,

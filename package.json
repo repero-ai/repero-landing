@@ -5,15 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "prebuild": "npm run brand:generate && npm run brand:validate",
     "build": "astro build",
     "preview": "astro preview",
     "test:blog-build": "node scripts/test-blog-build.mjs",
     "test:fr-product-pages": "node scripts/test-fr-product-pages.mjs",
+    "test:seo-baseline": "node scripts/test-seo-baseline.mjs",
     "verify:no-redirects": "node scripts/verify-no-redirects.mjs",
-    "check": "npm run build && npm run verify:no-redirects",
-    "brand:generate": "node scripts/generate-brand-assets.mjs",
-    "brand:validate": "node scripts/validate-brand-assets.mjs"
+    "check": "npm run build && npm run test:blog-build && npm run test:fr-product-pages && npm run test:seo-baseline && npm run verify:no-redirects"
   },
   "dependencies": {
     "astro": "^5.8.0",

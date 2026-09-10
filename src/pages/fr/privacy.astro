@@ -1,7 +1,14 @@
 ---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 const lastUpdated = "Juin 2026";
+const canonical = 'https://repero.ai/fr/privacy';
+const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/privacy' }];
 ---
 
+<BaseLayout lang="fr" title="Politique de confidentialité | Repero AI" description="Découvrez comment Repero AI collecte, utilise, stocke et protège les données personnelles." canonical={canonical} alternates={alternates}>
+  <Header lang="fr" />
 <main class="legal-page">
   <section class="legal-container">
     <h1>Politique de confidentialité</h1>
@@ -134,3 +141,5 @@ const lastUpdated = "Juin 2026";
     <p>Pour toute question ou demande relative à la confidentialité, contactez-nous à : <a href="mailto:privacy@repero.ai">privacy@repero.ai</a></p>
   </section>
 </main>
+  <Footer lang="fr" />
+</BaseLayout>

@@ -1,0 +1,9 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Inverted flat Repero maskable icon</title>
+  <desc id="desc">Frozen Repero mark centered within the standard 80 percent maskable safe zone on night blue.</desc>
+  <rect width="512" height="512" fill="#0B1531"/>
+  <g transform="translate(51.2 51.2) scale(.8)">
+    <path d="M196 352V160C196 146.745 206.745 136 220 136H274C316.467 136 350 169.533 350 212C350 251.187 319.756 283.988 281 287.587L351 352" fill="none" stroke="#F1F5F9" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="350" cy="406" r="24" fill="#22D3EE"/>
+  </g>
+</svg>

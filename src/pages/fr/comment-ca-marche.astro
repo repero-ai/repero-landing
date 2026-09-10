@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import ProductStorySection from '../../components/ProductStorySection.astro';
 import { frProductScreens } from '../../data/frProductScreens';
 
-const site = Astro.site?.href || 'https://repero.ai';
+const site = 'https://repero.ai';
 const canonical = new URL('/fr/comment-ca-marche', site).href;
 const alternates = [{ lang: 'en', href: new URL('/en/how-it-works', site).href }];
 

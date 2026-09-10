@@ -1,7 +1,14 @@
 ---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 const lastUpdated = "June 2026";
+const canonical = 'https://repero.ai/en/terms';
+const alternates = [{ lang: 'fr' as const, href: 'https://repero.ai/fr/terms' }];
 ---
 
+<BaseLayout lang="en" title="Terms of Service | Repero AI" description="Read the terms that govern access to and use of Repero AI." canonical={canonical} alternates={alternates}>
+  <Header lang="en" />
 <main class="legal-page">
   <section class="legal-container">
     <h1>Terms of Service</h1>
@@ -158,3 +165,5 @@ const lastUpdated = "June 2026";
     </p>
   </section>
 </main>
+  <Footer lang="en" />
+</BaseLayout>
