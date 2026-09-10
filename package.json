@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "generate:favicons": "node scripts/generate-favicons.mjs",
     "preview": "astro preview",
     "test:blog-build": "node scripts/test-blog-build.mjs",
     "test:fr-product-pages": "node scripts/test-fr-product-pages.mjs",

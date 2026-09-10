@@ -61,6 +61,12 @@ if (!existsSync(rootFavicon)) throw new Error('Missing root favicon fallback');
 if (!readFileSync(rootFavicon).equals(readFileSync(join(root, 'brand/logo/flat/web/favicon.ico')))) {
   throw new Error('Root favicon fallback must match the canonical flat-web ICO');
 }
+const ico = readFileSync(rootFavicon);
+if (ico.readUInt16LE(2) !== 1 || ico.readUInt16LE(4) < 3) throw new Error('Root favicon must be a multi-resolution ICO');
+const icoSizes = Array.from({ length: ico.readUInt16LE(4) }, (_, index) => ico[6 + index * 16]);
+for (const size of [16, 32, 48]) {
+  if (!icoSizes.includes(size)) throw new Error(`Root favicon must include a ${size}×${size} render`);
+}
 
 const enSecurity = read('en/blog/what-happens-to-your-data-repero-ai.html');
 const frSecurity = read('fr/blog/ce-qui-arrive-a-vos-donnees-repero-ai.html');
