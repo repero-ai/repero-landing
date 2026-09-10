@@ -1,67 +1,10 @@
 {
-  "$schema": "https://design-tokens.github.io/community-group/format/",
-  "meta": {
-    "name": "Repero consolidated brand token proposal",
-    "status": "audit-only; not applied",
-    "date": "2026-08-08",
-    "sources": [
-      "historical application-audit material (repository history)",
-      "src/styles/global.css",
-      "src/components/Header.astro",
-      "public/brand/repero-icon.svg",
-      "docs/branding-assets.md"
-    ],
-    "constraints": [
-      "Observed values remain observations, not approval to modify either interface.",
-      "Official logo geometry is frozen and is not represented as scalable UI geometry tokens.",
-      "No wordmark is created, approved, or applied by this file."
-    ]
-  },
-  "observedApplicationValues": {
-    "color": {
-      "slate": { "50": "#f8fafc", "100": "#f1f5f9", "200": "#e2e8f0", "300": "#cbd5e1", "400": "#94a3b8", "500": "#64748b", "600": "#475569", "700": "#334155", "800": "#1e293b", "900": "#0f172a", "950": "#020617" },
-      "sky": { "50": "#f0f9ff", "100": "#e0f2fe", "200": "#bae6fd", "300": "#7dd3fc", "400": "#38bdf8", "500": "#0ea5e9", "600": "#0284c7" },
-      "semantic": { "success": { "surface": "#ecfdf5", "content": "#047857", "darkSurface": "#022c22" }, "warning": { "surface": "#fffbeb", "content": "#d97706", "darkSurface": "#451a03" }, "error": { "surface": "#fff1f2", "content": "#be123c", "darkSurface": "#4c0519" } },
-      "incidental": { "billingGlow": "#22d3ee at 10% alpha" }
-    },
-    "radius": { "compact": "6px", "control": "8px", "panel": "12px", "container": "16px", "feature": ["24px", "28px", "32px"], "pill": "9999px" },
-    "spacing": ["4px", "8px", "12px", "16px", "20px", "24px", "32px", "40px"],
-    "typography": { "family": "browser/Tailwind default sans-serif; no custom font", "body": "14px / 20px", "metadata": ["10px", "11px", "12px"], "headings": ["24px", "30px", "36px"], "weights": [500, 600, 700], "tracking": ["0.025em", "0.22em", "0.3em"] }
-  },
-  "observedWebsiteValues": {
-    "color": {
-      "canvasGradient": ["#050a1f", "#08112b", "#0b132e"],
-      "surface": { "dark": "#020617 / #0f172a via slate utilities", "border": "#1e293b / #334155 via slate utilities" },
-      "sky": { "cta": "#0284c7", "hover": "#0ea5e9", "emphasis": "#38bdf8", "softText": "#7dd3fc" },
-      "atmosphere": { "sky": "#38bdf8 at 16% alpha", "mint": "#4df9c4 at 9% alpha" },
-      "incidental": { "unusedTailwindBrand": "#1d4ed8" }
-    },
-    "radius": { "button": "8px", "input": "12px", "card": "16px", "shell": "24px", "screenshotFrame": "28px", "legal": ["16px", "20px"], "pill": "9999px" },
-    "spacing": { "pageGutter": "24px", "pageMaxWidth": "72rem", "cardPadding": "24px", "heroY": ["32px", "56px"], "sectionGap": ["32px", "48px"] },
-    "typography": { "family": ["Space Grotesk", "Segoe UI", "sans-serif"], "requestedWeights": [400, 500, 700], "eyebrow": "12px / 600 / uppercase / 0.24em", "body": ["18px / 32px", "20px / 32px"], "display": ["36px", "60px"], "displayLineHeight": "0.95", "displayTracking": "tight" },
-    "logoUsage": { "source": "public/brand/repero-icon.svg", "headerSize": "36px", "companion": "plain text: Repero AI" }
-  },
-  "observedOfficialLogoValues": {
-    "canonicalSource": "public/brand/repero-icon.svg",
-    "viewBox": "0 0 512 512",
-    "container": { "x": 24, "y": 24, "width": 464, "height": 464, "radius": 112, "gradient": ["#0B1531", "#050A1C"], "border": "#38BDF8 at 18% alpha; 10 units" },
-    "mark": { "strokeWidth": 44, "linecap": "round", "linejoin": "round", "gradient": ["#A5F3FC", "#38BDF8", "#22D3EE"], "upperLeftTransition": "centreline cubic (196,160) to (220,136), 24-unit quarter-turn", "dot": { "outer": "#22D3EE at 95% alpha; centre (350,384); radius 32", "inner": "#E0F2FE at 95% alpha; radius 14" }, "highlights": "#E0F2FE, 18-unit strokes at 14% and 12% alpha" },
-    "rule": "Frozen vector geometry. Do not convert this source into a generic typographic R or derive it from UI tokens."
-  },
-  "proposedCanonicalBrandValues": {
-    "status": "Proposed semantic map only; values are selected from observed sources and are not implementation instructions.",
-    "color": {
-      "ink": { "strong": "#050A1C", "base": "#0B1531" },
-      "surface": { "dark": "#020617", "raisedDark": "#0F172A", "light": "#F8FAFC", "raisedLight": "#FFFFFF" },
-      "line": { "dark": "#1E293B", "light": "#E2E8F0" },
-      "text": { "onDark": "#F1F5F9", "onLight": "#0F172A", "mutedDark": "#94A3B8", "mutedLight": "#64748B" },
-      "actionSky": { "default": "#0284C7", "hover": "#0EA5E9", "soft": "#E0F2FE", "onDark": "#BAE6FD" },
-      "signatureCyan": { "base": "#22D3EE", "bright": "#67E8F9", "highlight": "#A5F3FC", "usage": "Reserved for official logo treatment and limited high-recognition signposts; not a default UI fill." },
-      "semantic": { "success": "#047857", "warning": "#D97706", "error": "#BE123C" }
-    },
-    "geometry": { "radius": { "compact": "8px", "control": "12px", "panel": "16px", "container": "24px", "feature": "28px", "pill": "9999px" }, "rules": ["Step radius down inside nested containers.", "Use pill only for compact metadata, locale, count, or status.", "The official logo's geometry is excluded from this scale."] },
-    "spacing": { "1": "4px", "2": "8px", "3": "12px", "4": "16px", "5": "20px", "6": "24px", "8": "32px", "10": "40px", "12": "48px", "14": "56px" },
-    "typography": { "decision": "unresolved", "sharedRules": { "utility": "small semibold labels may use uppercase and wide tracking", "body": "prioritize legible, muted supporting copy", "display": "tight hierarchy is acceptable for marketing but must be tested independently from product UI" }, "observedCandidates": ["Space Grotesk on website", "system/Tailwind sans in application"] },
-    "logo": { "source": "public/brand/repero-icon.svg", "geometry": "frozen", "futureWordmarkConcept": "[official Repero R]epero AI", "auditAction": "none" }
+  "websiteBrandSource": "brand/logo/flat/web",
+  "deploymentPath": "public/brand/flat-web",
+  "background": "#050A1C",
+  "accent": "#22D3EE",
+  "logoUsage": {
+    "darkSurfaces": "repero-mark-flat-inverted-transparent.svg",
+    "structuredData": "repero-mark-flat-transparent.svg"
   }
 }
