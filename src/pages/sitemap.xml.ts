@@ -11,8 +11,10 @@ const entries: Entry[] = [
   { path: '/fr', alternates: [{ lang: 'en', path: '/en' }] },
   { path: '/en/trust/ai', alternates: [{ lang: 'fr', path: '/fr/trust/ai' }] },
   { path: '/fr/trust/ai', alternates: [{ lang: 'en', path: '/en/trust/ai' }] },
-  { path: '/en/waitlist', alternates: [{ lang: 'fr', path: '/fr/liste-attente' }] },
-  { path: '/fr/liste-attente', alternates: [{ lang: 'en', path: '/en/waitlist' }] },
+  { path: '/en/privacy', alternates: [{ lang: 'fr', path: '/fr/privacy' }] },
+  { path: '/fr/privacy', alternates: [{ lang: 'en', path: '/en/privacy' }] },
+  { path: '/en/terms', alternates: [{ lang: 'fr', path: '/fr/terms' }] },
+  { path: '/fr/terms', alternates: [{ lang: 'en', path: '/en/terms' }] },
   { path: '/en/use-cases', alternates: [{ lang: 'fr', path: '/fr/cas-usages' }] },
   { path: '/fr/cas-usages', alternates: [{ lang: 'en', path: '/en/use-cases' }] },
   { path: '/en/use-cases/everyday', alternates: [{ lang: 'fr', path: '/fr/cas-usages/quotidien' }] },
@@ -39,11 +41,23 @@ export async function GET() {
     getPublishedBlogPosts('en'),
     getPublishedBlogPosts('fr')
   ]);
+  const englishByFrenchSlug = new Map(
+    publishedEnglishPosts
+      .filter((post) => post.data.translationOf)
+      .map((post) => [post.data.translationOf!, post])
+  );
   const dynamicEntries: Entry[] = [
-    { path: buildBlogIndexPath('en') },
-    ...publishedEnglishPosts.map((post) => ({ path: buildBlogPostPath(post) })),
-    { path: buildBlogIndexPath('fr') },
-    ...publishedFrenchPosts.map((post) => ({ path: buildBlogPostPath(post) }))
+    ...publishedEnglishPosts.map((post) => ({
+      path: buildBlogPostPath(post),
+      alternates: post.data.translationOf ? [{ lang: 'fr' as const, path: `/fr/blog/${post.data.translationOf}` }] : undefined
+    })),
+    ...publishedFrenchPosts.map((post) => {
+      const englishPost = englishByFrenchSlug.get(post.slug);
+      return {
+        path: buildBlogPostPath(post),
+        alternates: englishPost ? [{ lang: 'en' as const, path: buildBlogPostPath(englishPost) }] : undefined
+      };
+    })
   ];
   const uniqueEntries = new Map<string, Entry>();
   for (const entry of [...entries, ...dynamicEntries]) {

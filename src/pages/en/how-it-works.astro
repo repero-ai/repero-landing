@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import ProductStorySection from '../../components/ProductStorySection.astro';
 import { frProductScreens } from '../../data/frProductScreens';
 
-const site = Astro.site?.href || 'https://repero.ai';
+const site = 'https://repero.ai';
 const canonical = new URL('/en/how-it-works', site).href;
 const alternates = [{ lang: 'fr', href: new URL('/fr/comment-ca-marche', site).href }];
 const screens = Object.fromEntries(frProductScreens.map((screen) => [screen.id, screen]));

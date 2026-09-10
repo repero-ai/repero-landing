@@ -1,7 +1,14 @@
 ---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 const lastUpdated = "Juin 2026";
+const canonical = 'https://repero.ai/fr/terms';
+const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/terms' }];
 ---
 
+<BaseLayout lang="fr" title="Conditions d’utilisation | Repero AI" description="Consultez les conditions qui régissent l’accès et l’utilisation de Repero AI." canonical={canonical} alternates={alternates}>
+  <Header lang="fr" />
 <main class="legal-page">
   <section class="legal-container">
     <h1>Conditions d’utilisation</h1>
@@ -86,3 +93,5 @@ const lastUpdated = "Juin 2026";
     <p>Pour toute question concernant ces Conditions, contactez-nous à : <a href="mailto:contact@repero.ai">contact@repero.ai</a></p>
   </section>
 </main>
+  <Footer lang="fr" />
+</BaseLayout>

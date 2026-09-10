@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { frProductScreens } from '../../data/frProductScreens';
-const site = Astro.site?.href || 'https://repero.ai';
+const site = 'https://repero.ai';
 const canonical = new URL('/fr', site).href;
 const alternates = [{ lang: 'en', href: new URL('/en', site).href }];
 const heroScreen = frProductScreens.find((screen) => screen.id === 'active-context');

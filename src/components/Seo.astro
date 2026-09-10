@@ -1,5 +1,5 @@
 ---
-import { DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, absoluteUrl } from '../config/site';
+import { BRAND_LOGO, DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, absoluteUrl } from '../config/site';
 
 interface AlternateLink {
   lang: 'en' | 'fr' | 'x-default';
@@ -43,15 +43,14 @@ const {
   schema
 } = Astro.props;
 
-const siteBase = Astro.site?.href || SITE_URL;
+const siteBase = SITE_URL;
 const canonicalUrl = absoluteUrl(canonical, siteBase);
 const ogImageUrl = absoluteUrl(ogImage, siteBase);
-const faviconUrl = absoluteUrl('/brand/generated/favicon.ico', siteBase);
-const svgFaviconUrl = absoluteUrl('/brand/repero-icon.svg', siteBase);
-const favicon16Url = absoluteUrl('/brand/generated/favicon-16x16.png', siteBase);
-const favicon32Url = absoluteUrl('/brand/generated/favicon-32x32.png', siteBase);
-const appleTouchIconUrl = absoluteUrl('/brand/generated/apple-touch-icon-180x180.png', siteBase);
-const brandIconUrl = absoluteUrl('/brand/repero-icon.svg', siteBase);
+const faviconUrl = '/favicon.ico';
+const favicon16Url = '/brand/flat-web/favicon-16x16.png';
+const favicon32Url = '/brand/flat-web/favicon-32x32.png';
+const appleTouchIconUrl = '/brand/flat-web/apple-touch-icon-180x180.png';
+const brandIconUrl = absoluteUrl(BRAND_LOGO, siteBase);
 const hreflangs = [{ lang, href: canonicalUrl }, ...alternates];
 
 const organizationJsonLd = {
@@ -59,14 +58,16 @@ const organizationJsonLd = {
   '@type': 'Organization',
   name: SITE_NAME,
   url: siteBase,
-  logo: brandIconUrl
+  logo: brandIconUrl,
+  image: ogImageUrl
 };
 
 const websiteJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: SITE_NAME,
-  url: siteBase
+  url: siteBase,
+  image: ogImageUrl
 };
 const schemaList = [
   organizationJsonLd,
@@ -77,7 +78,6 @@ const schemaList = [
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
-<link rel="icon" href={svgFaviconUrl} type="image/svg+xml" sizes="any" />
 <link rel="icon" href={faviconUrl} sizes="any" />
 <link rel="icon" href={favicon32Url} type="image/png" sizes="32x32" />
 <link rel="icon" href={favicon16Url} type="image/png" sizes="16x16" />

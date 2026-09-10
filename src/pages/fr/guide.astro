@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const site = Astro.site?.href || 'https://repero.ai';
+const site = 'https://repero.ai';
 const canonical = new URL('/fr/guide', site).href;
 const alternates = [{ lang: 'en', href: new URL('/en/guide', site).href }];
 

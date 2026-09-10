@@ -9,7 +9,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const isFr = lang === 'fr';
-const site = Astro.site?.href || 'https://repero.ai';
+const site = 'https://repero.ai';
 const path = `/${lang}/trust/ai`;
 const alternatePath = isFr ? '/en/trust/ai' : '/fr/trust/ai';
 const canonical = new URL(path, site).href;
