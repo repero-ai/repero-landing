@@ -58,12 +58,12 @@ expect(fr, '[1] Modèles de pointe : les modèles les plus avancés consomment d
 expect(en, '[1] Flagship models: the most advanced models use more of your included usage allowance.', 'English flagship footnote');
 expect(fr, 'Usage IA : découverte', 'French Free usage');
 expect(fr, 'Usage IA : base', 'French Starter usage');
-expect(fr, 'Usage IA : environ 1,5× Starter', 'French Plus usage');
-expect(fr, 'Usage IA : environ 2,5× Plus', 'French Pro usage');
+expect(fr, 'Usage IA : environ 2,5× Starter', 'French Plus usage');
+expect(fr, 'Usage IA : environ 3× Plus', 'French Pro usage');
 expect(en, 'AI usage: discovery', 'English Free usage');
 expect(en, 'AI usage: base', 'English Starter usage');
-expect(en, 'AI usage: about 1.5× Starter', 'English Plus usage');
-expect(en, 'AI usage: about 2.5× Plus', 'English Pro usage');
+expect(en, 'AI usage: about 2.5× Starter', 'English Plus usage');
+expect(en, 'AI usage: about 3× Plus', 'English Pro usage');
 expect(fr, 'pricing-card feature-card', 'French grid cards');
 expect(fr, 'pricing-card__cta btn-primary', 'French grid card CTAs');
 expect(fr, 'Espace documentaire plus confortable', 'French Plus document space');

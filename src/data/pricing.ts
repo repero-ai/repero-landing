@@ -38,7 +38,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       bestFor: 'Pour un usage quotidien.',
       modelAccess: ['Automatique, par famille ou directement par modèle'],
       documentSpace: 'Espace documentaire plus confortable',
-      aiUsage: 'Usage IA : environ 1,5× Starter',
+      aiUsage: 'Usage IA : environ 2,5× Starter',
       vatExample: '22,99 € TVAC en Belgique'
     },
     {
@@ -48,7 +48,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       bestFor: 'Pour un usage professionnel.',
       modelAccess: ['Automatique, par famille ou directement par modèle', 'Accès aux modèles de pointe disponibles [1]'],
       documentSpace: 'Espace documentaire étendu',
-      aiUsage: 'Usage IA : environ 2,5× Plus',
+      aiUsage: 'Usage IA : environ 3× Plus',
       vatExample: '59,29 € TVAC en Belgique'
     }
   ],
@@ -78,7 +78,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       bestFor: 'For everyday use.',
       modelAccess: ['Automatic, by family or directly by model'],
       documentSpace: 'More comfortable document space',
-      aiUsage: 'AI usage: about 1.5× Starter',
+      aiUsage: 'AI usage: about 2.5× Starter',
       vatExample: '€22.99 incl. VAT in Belgium'
     },
     {
@@ -88,7 +88,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       bestFor: 'For professional use.',
       modelAccess: ['Automatic, by family or direct model selection', 'Access to available flagship models [1]'],
       documentSpace: 'Extended document space',
-      aiUsage: 'AI usage: about 2.5× Plus',
+      aiUsage: 'AI usage: about 3× Plus',
       vatExample: '€59.29 incl. VAT in Belgium'
     }
   ]
