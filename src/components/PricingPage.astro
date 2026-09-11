@@ -86,7 +86,9 @@ const copy = isEn
               {plan.vatExample && <p class="mt-1 whitespace-nowrap text-sm leading-6 text-slate-400">{plan.vatExample}</p>}
           </div>
           <p class="pricing-card__audience text-sm leading-7 text-slate-300">{plan.bestFor}</p>
-          <p class="pricing-card__capability border-t border-slate-800 pt-3 text-sm leading-6 text-slate-300">{plan.modelAccess}</p>
+          <div class="pricing-card__capability border-t border-slate-800 text-sm leading-6 text-slate-300">
+            {plan.modelAccess.map((capability) => <p>{capability}</p>)}
+          </div>
           <p class="pricing-card__capability border-t border-slate-800 pt-3 text-sm leading-6 text-slate-300">{plan.documentSpace}</p>
           <p class="pricing-card__usage text-sm font-medium text-sky-200">{plan.aiUsage}</p>
           <a class="pricing-card__cta btn-primary" href="https://app.repero.ai" target="_blank">{copy.start}</a>
@@ -110,7 +112,7 @@ const copy = isEn
           </thead>
           <tbody class="text-slate-300">
             <tr class="border-t border-slate-800"><th class="px-4 py-4 font-medium text-white">{copy.bestFor}</th>{plans.map((plan) => <td class="px-4 py-4 leading-6">{plan.bestFor}</td>)}</tr>
-            <tr class="border-t border-slate-800"><th class="px-4 py-4 font-medium text-white">{copy.modelAccess}</th>{plans.map((plan) => <td class="px-4 py-4 leading-6">{plan.modelAccess}</td>)}</tr>
+            <tr class="border-t border-slate-800"><th class="px-4 py-4 font-medium text-white">{copy.modelAccess}</th>{plans.map((plan) => <td class="px-4 py-4 leading-6">{plan.modelAccess.map((capability) => <p>{capability}</p>)}</td>)}</tr>
             <tr class="border-t border-slate-800"><th class="px-4 py-4 font-medium text-white">{copy.documentSpace}</th>{plans.map((plan) => <td class="px-4 py-4 leading-6">{plan.documentSpace}</td>)}</tr>
             <tr class="border-t border-slate-800"><th class="px-4 py-4 font-medium text-white">{copy.aiUsage}</th>{plans.map((plan) => <td class="px-4 py-4 leading-6">{plan.aiUsage}</td>)}</tr>
           </tbody>

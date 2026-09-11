@@ -5,7 +5,7 @@ export interface PricingPlan {
   price: string;
   priceSuffix?: string;
   bestFor: string;
-  modelAccess: string;
+  modelAccess: string[];
   documentSpace: string;
   aiUsage: string;
   vatExample?: string;
@@ -17,7 +17,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       name: 'Free',
       price: '0 €',
       bestFor: 'Pour découvrir Repero et poser quelques questions.',
-      modelAccess: 'Mode automatique uniquement.',
+      modelAccess: ['Mode automatique uniquement.'],
       documentSpace: 'Espace documentaire limité',
       aiUsage: 'Usage IA : découverte'
     },
@@ -26,7 +26,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       price: '9 € / mois',
       priceSuffix: 'HTVA',
       bestFor: 'Pour une utilisation occasionnelle.',
-      modelAccess: 'Choisissez GPT, Claude ou Mistral ; Repero gère automatiquement le modèle dans la famille choisie.',
+      modelAccess: ['Choisissez GPT, Claude ou Mistral ; Repero gère automatiquement le modèle dans la famille choisie.'],
       documentSpace: 'Plus d’espace documentaire que Free',
       aiUsage: 'Usage IA : base',
       vatExample: '10,89 € TVAC en Belgique'
@@ -36,7 +36,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       price: '19 € / mois',
       priceSuffix: 'HTVA',
       bestFor: 'Pour un usage quotidien.',
-      modelAccess: 'Automatique, par famille ou directement par modèle',
+      modelAccess: ['Automatique, par famille ou directement par modèle'],
       documentSpace: 'Espace documentaire plus confortable',
       aiUsage: 'Usage IA : environ 1,5× Starter',
       vatExample: '22,99 € TVAC en Belgique'
@@ -46,7 +46,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       price: '49 € / mois',
       priceSuffix: 'HTVA',
       bestFor: 'Pour un usage professionnel.',
-      modelAccess: 'Accès aux modèles de pointe disponibles [1]',
+      modelAccess: ['Automatique, par famille ou directement par modèle', 'Accès aux modèles de pointe disponibles [1]'],
       documentSpace: 'Espace documentaire étendu',
       aiUsage: 'Usage IA : environ 2,5× Plus',
       vatExample: '59,29 € TVAC en Belgique'
@@ -57,7 +57,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       name: 'Free',
       price: '€0',
       bestFor: 'For discovering Repero and asking a few questions.',
-      modelAccess: 'Automatic mode only.',
+      modelAccess: ['Automatic mode only.'],
       documentSpace: 'Limited document space',
       aiUsage: 'AI usage: discovery'
     },
@@ -66,7 +66,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       price: '€9 / month',
       priceSuffix: 'excl. VAT',
       bestFor: 'For occasional use.',
-      modelAccess: 'Choose GPT, Claude or Mistral; Repero automatically manages the model in the family you choose.',
+      modelAccess: ['Choose GPT, Claude or Mistral; Repero automatically manages the model in the family you choose.'],
       documentSpace: 'More document space than Free',
       aiUsage: 'AI usage: base',
       vatExample: '€10.89 incl. VAT in Belgium'
@@ -76,7 +76,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       price: '€19 / month',
       priceSuffix: 'excl. VAT',
       bestFor: 'For everyday use.',
-      modelAccess: 'Automatic, by family or directly by model',
+      modelAccess: ['Automatic, by family or directly by model'],
       documentSpace: 'More comfortable document space',
       aiUsage: 'AI usage: about 1.5× Starter',
       vatExample: '€22.99 incl. VAT in Belgium'
@@ -86,7 +86,7 @@ export const pricingPlans: Record<PricingLanguage, PricingPlan[]> = {
       price: '€49 / month',
       priceSuffix: 'excl. VAT',
       bestFor: 'For professional use.',
-      modelAccess: 'Access to available flagship models [1]',
+      modelAccess: ['Automatic, by family or direct model selection', 'Access to available flagship models [1]'],
       documentSpace: 'Extended document space',
       aiUsage: 'AI usage: about 2.5× Plus',
       vatExample: '€59.29 incl. VAT in Belgium'

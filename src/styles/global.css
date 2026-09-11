@@ -57,15 +57,15 @@
   }
 
   .pricing-card__audience {
-    @apply mt-0;
+    @apply mt-0 py-1;
   }
 
   .pricing-card__capability {
-    @apply mt-0;
+    @apply mt-0 space-y-2 py-4;
   }
 
   .pricing-card__usage {
-    @apply mt-0;
+    @apply mt-0 py-2;
   }
 
   .pricing-card__cta {
@@ -206,6 +206,9 @@
   .pricing-card__cta {
     align-self: stretch;
     margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0.875rem;
+    padding-bottom: 0.875rem;
   }
 }
 

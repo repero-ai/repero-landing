@@ -52,6 +52,8 @@ expect(fr, 'Automatique, par famille ou directement par modèle', 'French Plus d
 expect(en, 'Automatic, by family or directly by model', 'English Plus direct model choice');
 expect(fr, 'Accès aux modèles de pointe disponibles', 'French Pro flagship access');
 expect(en, 'Access to available flagship models', 'English Pro flagship access');
+expect(fr, 'Automatique, par famille ou directement par modèle', 'French Pro control levels');
+expect(en, 'Automatic, by family or direct model selection', 'English Pro control levels');
 expect(fr, '[1] Modèles de pointe : les modèles les plus avancés consomment davantage de votre enveloppe incluse.', 'French flagship footnote');
 expect(en, '[1] Flagship models: the most advanced models use more of your included usage allowance.', 'English flagship footnote');
 expect(fr, 'Usage IA : découverte', 'French Free usage');
