@@ -44,6 +44,34 @@
     @apply rounded-2xl border border-slate-800 bg-slate-950/55 p-6 shadow-sm;
   }
 
+  .pricing-grid {
+    @apply grid;
+  }
+
+  .pricing-card {
+    @apply flex h-full flex-col gap-4;
+  }
+
+  .pricing-card__price {
+    @apply mt-0;
+  }
+
+  .pricing-card__audience {
+    @apply mt-0;
+  }
+
+  .pricing-card__capability {
+    @apply mt-0;
+  }
+
+  .pricing-card__usage {
+    @apply mt-0;
+  }
+
+  .pricing-card__cta {
+    @apply mt-auto;
+  }
+
   .eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.24em] text-sky-400;
   }
@@ -150,6 +178,34 @@
 
   .product-story-section__body {
     @apply mt-4 space-y-4 text-base leading-8 text-slate-300;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pricing-grid {
+    grid-template-rows: auto auto auto auto auto auto auto;
+    grid-auto-flow: column;
+  }
+
+  .pricing-card {
+    display: grid;
+    grid-row: span 7;
+    grid-template-rows: subgrid;
+    gap: 0;
+  }
+
+  .pricing-card__name,
+  .pricing-card__price,
+  .pricing-card__audience,
+  .pricing-card__capability,
+  .pricing-card__usage,
+  .pricing-card__cta {
+    align-self: start;
+  }
+
+  .pricing-card__cta {
+    align-self: stretch;
+    margin-top: 0;
   }
 }
 
