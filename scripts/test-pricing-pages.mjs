@@ -32,8 +32,8 @@ for (const [html, label, path, alternate] of [
   reject(html, '—', `${label} misleading document-space dash`);
 }
 
-for (const value of ['0 €', '9 € / mois HTVA', '19 € / mois HTVA', '49 € / mois HTVA']) expect(fr, value, 'French pricing');
-for (const value of ['€0', '€9 / month excl. VAT', '€19 / month excl. VAT', '€49 / month excl. VAT']) expect(en, value, 'English pricing');
+for (const value of ['0 €', '9 € / mois', '19 € / mois', '49 € / mois', 'HTVA']) expect(fr, value, 'French pricing');
+for (const value of ['€0', '€9 / month', '€19 / month', '€49 / month', 'excl. VAT']) expect(en, value, 'English pricing');
 
 expect(fr, '10,89 € TVAC en Belgique', 'French Starter VAT example');
 expect(fr, '22,99 € TVAC en Belgique', 'French Plus VAT example');
@@ -46,8 +46,8 @@ expect(en, 'VAT-inclusive example calculated using Belgium’s 21% standard rate
 
 expect(fr, 'Mode automatique uniquement', 'French Free automatic-only access');
 expect(en, 'Automatic mode only', 'English Free automatic-only access');
-expect(fr, 'Choisissez GPT, Claude ou Mistral ; Repero sélectionne automatiquement le modèle adapté dans la famille choisie.', 'French Starter family choice');
-expect(en, 'Choose GPT, Claude or Mistral; Repero automatically selects the right model within the family you choose.', 'English Starter family choice');
+expect(fr, 'Choisissez GPT, Claude ou Mistral ; Repero gère automatiquement le modèle dans la famille choisie.', 'French Starter family choice');
+expect(en, 'Choose GPT, Claude or Mistral; Repero automatically manages the model in the family you choose.', 'English Starter family choice');
 expect(fr, 'automatique, par famille ou directement par modèle', 'French Plus direct model choice');
 expect(en, 'automatic, by family or directly by model', 'English Plus direct model choice');
 expect(fr, 'Accès aux modèles de pointe disponibles', 'French Pro flagship access');
@@ -64,5 +64,7 @@ expect(en, 'AI usage: about 1.5× Starter', 'English Plus usage');
 expect(en, 'AI usage: about 2.5× Plus', 'English Pro usage');
 expect(fr, 'feature-card flex h-full flex-col', 'French aligned cards');
 expect(fr, 'btn-primary mt-auto', 'French aligned card CTAs');
+reject(fr, '<p class="mt-5 text-sm font-semibold text-white">Pour qui</p>', 'French card audience label');
+reject(en, '<p class="mt-5 text-sm font-semibold text-white">Who it is for</p>', 'English card audience label');
 
 console.log('Pricing page build assertions passed.');
