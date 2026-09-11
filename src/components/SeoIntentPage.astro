@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+
+interface Section {
+  id: string;
+  heading: string;
+  paragraphs: string[];
+  bullets?: string[];
+}
+
+interface RelatedLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  lang: 'en' | 'fr';
+  title: string;
+  description: string;
+  canonical: string;
+  alternates: Array<{ lang: 'en' | 'fr'; href: string }>;
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  sections: Section[];
+  relatedHeading: string;
+  relatedLinks: RelatedLink[];
+  ctaHeading: string;
+  ctaBody: string;
+  ctaLabel: string;
+}
+
+const {
+  lang,
+  title,
+  description,
+  canonical,
+  alternates,
+  eyebrow,
+  heading,
+  intro,
+  sections,
+  relatedHeading,
+  relatedLinks,
+  ctaHeading,
+  ctaBody,
+  ctaLabel
+} = Astro.props;
+---
+<BaseLayout lang={lang} title={title} description={description} canonical={canonical} alternates={alternates} ogType="website" twitterCard="summary_large_image">
+  <Header lang={lang} />
+  <main class="page-shell pb-12">
+    <section class="section-shell px-6 py-10 md:px-10 md:py-14">
+      <div class="max-w-4xl space-y-5">
+        <p class="eyebrow">{eyebrow}</p>
+        <h1 class="headline text-4xl md:text-5xl">{heading}</h1>
+        <p class="lead max-w-3xl text-lg md:text-xl">{intro}</p>
+      </div>
+    </section>
+
+    {Astro.slots.has('visual') && (
+      <section class="section-shell mt-8 overflow-hidden" data-visual-slot>
+        <slot name="visual" />
+      </section>
+    )}
+
+    <div class="mt-8 space-y-8 md:space-y-12">
+      {sections.map((section) => (
+        <section class="section-shell px-6 py-8 md:px-8 md:py-10" id={section.id}>
+          <div class="max-w-4xl space-y-4">
+            <h2 class="text-3xl font-semibold tracking-tight text-white md:text-4xl">{section.heading}</h2>
+            {section.paragraphs.map((paragraph) => <p class="text-base leading-8 text-slate-300 md:text-lg">{paragraph}</p>)}
+            {section.bullets && (
+              <ul class="grid gap-3 pt-2 md:grid-cols-2">
+                {section.bullets.map((bullet) => <li class="rounded-xl border border-slate-800 bg-slate-950/60 px-4 py-3 text-sm leading-7 text-slate-200">{bullet}</li>)}
+              </ul>
+            )}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <section class="section-shell mt-8 px-6 py-8 md:px-8 md:py-10">
+      <p class="eyebrow">{relatedHeading}</p>
+      <div class="mt-5 flex flex-wrap gap-x-5 gap-y-3 text-sm">
+        {relatedLinks.map((link) => <a class="text-sky-300 underline decoration-sky-500/40 underline-offset-4 hover:text-sky-200" href={link.href}>{link.label}</a>)}
+      </div>
+      <h2 class="mt-8 text-3xl font-semibold tracking-tight text-white">{ctaHeading}</h2>
+      <p class="mt-4 max-w-3xl text-base leading-8 text-slate-300">{ctaBody}</p>
+      <a class="btn-primary mt-6" href="https://app.repero.ai" target="_blank">{ctaLabel}</a>
+    </section>
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>

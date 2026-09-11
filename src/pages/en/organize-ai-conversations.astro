@@ -1,0 +1,67 @@
+---
+import SeoIntentPage from '../../components/SeoIntentPage.astro';
+
+const site = 'https://repero.ai';
+const canonical = new URL('/en/organize-ai-conversations', site).href;
+const alternates = [{ lang: 'fr', href: new URL('/fr/organiser-conversations-chatgpt', site).href }];
+---
+<SeoIntentPage
+  lang="en"
+  title="How to organize ChatGPT conversations and AI work | Repero AI"
+  description="A practical way to find, structure and reuse work created with ChatGPT and other AI tools through projects, documents and organised workspaces."
+  canonical={canonical}
+  alternates={alternates}
+  eyebrow="Organize AI work"
+  heading="How can you organize ChatGPT conversations without losing your work?"
+  intro="When AI conversations pile up, useful ideas, research and deliverables quickly end up in the wrong place. The answer is not to use AI less. It is to give the work around it a structure that lasts."
+  sections={[
+    {
+      id: 'why-ai-work-fragments',
+      heading: 'Why AI work gets fragmented across conversations',
+      paragraphs: [
+        'One conversation can hold research, a client brief, several directions, a draft and a final decision. That is useful for moving quickly, but less useful when you need to find exactly what to continue a week later.',
+        'Chat histories still have value, but they do not always replace organising work by client, assignment or project. As threads multiply, an important answer can end up buried among experiments, side questions and provisional versions.'
+      ]
+    },
+    {
+      id: 'from-chat-to-work',
+      heading: 'Move from chat to work you can reuse',
+      paragraphs: [
+        'It helps to separate the conversation, where you explore and produce, from durable work, which needs to be reviewed, edited and reused. A validated summary, content plan or decision note deserves to become a document in its own right.',
+        'Organising that work around projects also keeps subjects from blending together. A workspace can bring together conversations, useful documents, sources and generated content for one assignment instead of scattering them across tabs and tools.'
+      ],
+      bullets: [
+        'One workspace per client, topic or assignment',
+        'Persistent documents for useful outcomes',
+        'Sources and decisions connected to their context',
+        'A clear point to resume each project'
+      ]
+    },
+    {
+      id: 'practical-example',
+      heading: 'Example: prepare a deliverable without starting over',
+      paragraphs: [
+        'Take a communications assignment: you explore positioning with AI, gather sources, write several options and select one direction. If everything stays in the chat, returning to the work means rereading the thread and rebuilding its context.',
+        'Keeping the brief, research and selected version in the same project lets you reopen the right document, understand previous choices and develop the deliverable. Conversation remains a production tool, not the only place where work exists.'
+      ]
+    },
+    {
+      id: 'repero-workspace',
+      heading: 'Move from chat to a real AI workspace',
+      paragraphs: [
+        'Repero AI brings conversations, documents, sources and generated content together in workspaces organised by project. The point is simple: keep what has value and find it again without digging through an endless history.',
+        'Move between GPT, Claude and Mistral to research, write or analyse, then turn useful results into persistent work. Your organised work stays in Repero even when you switch AI models.'
+      ]
+    }
+  ]}
+  relatedHeading="Keep exploring"
+  relatedLinks={[
+    { href: '/en/how-it-works', label: 'See how Repero organises a project' },
+    { href: '/en/guide', label: 'Read the Repero AI guide' },
+    { href: '/en/european-chatgpt-alternative', label: 'Explore GPT, Claude and Mistral in Repero' },
+    { href: '/en', label: 'Back to the homepage' }
+  ]}
+  ctaHeading="Keep the thread of your AI work."
+  ctaBody="Create a workspace for your projects and turn useful exchanges into documents you can genuinely return to."
+  ctaLabel="Try Repero AI for free"
+/>
