@@ -1,0 +1,67 @@
+---
+import SeoIntentPage from '../../components/SeoIntentPage.astro';
+
+const site = 'https://repero.ai';
+const canonical = new URL('/fr/alternative-europeenne-chatgpt', site).href;
+const alternates = [{ lang: 'en', href: new URL('/en/european-chatgpt-alternative', site).href }];
+---
+<SeoIntentPage
+  lang="fr"
+  title="Alternative européenne à ChatGPT : un espace multi-IA | Repero AI"
+  description="Découvrez une approche européenne de ChatGPT : un espace de travail pour organiser vos projets, documents et contenus autour de plusieurs modèles d’IA."
+  canonical={canonical}
+  alternates={alternates}
+  eyebrow="Espace de travail IA européen"
+  heading="Une alternative européenne à ChatGPT pour travailler avec plusieurs IA"
+  intro="Chercher une alternative à ChatGPT ne veut pas forcément dire remplacer un modèle par un autre. Pour beaucoup de travaux, le besoin est surtout d’avoir un espace stable autour des modèles, où les projets, documents et résultats restent organisés."
+  sections={[
+    {
+      id: 'un-modele-ne-suffit-pas-toujours',
+      heading: 'Un modèle n’est pas toujours la bonne unité de travail',
+      paragraphs: [
+        'ChatGPT, Claude, Mistral et d’autres modèles ont chacun leurs forces. Selon le sujet, vous pouvez rechercher de la rapidité, une bonne rédaction, un raisonnement différent ou un fournisseur particulier. Changer de modèle peut être utile ; reconstruire tout votre contexte de travail à chaque fois ne l’est pas.',
+        'Le travail durable ne se limite pas au modèle qui a produit une réponse. Il comprend le projet, les documents, les sources, les versions retenues et les décisions prises en chemin.'
+      ]
+    },
+    {
+      id: 'la-couche-espace-de-travail',
+      heading: 'La couche qui manque entre les modèles et votre travail',
+      paragraphs: [
+        'Un espace de travail IA sert de point d’ancrage. Il permet d’organiser les échanges et les contenus autour du projet, plutôt que de laisser le modèle ou le fournisseur définir à lui seul la manière de retrouver votre travail.',
+        'Vous pouvez ainsi garder les éléments utiles au même endroit tout en choisissant le modèle le plus adapté à une tâche. La continuité appartient à votre espace de travail, pas à un seul historique de chat.'
+      ],
+      bullets: [
+        'Un projet pour réunir conversations, sources et documents',
+        'Des contenus générés qui peuvent devenir des documents persistants',
+        'Un choix de modèle qui suit le besoin, pas l’inverse',
+        'Un contexte plus simple à reprendre dans le temps'
+      ]
+    },
+    {
+      id: 'ce-queuropeen-veut-dire',
+      heading: 'Ce qu’apporte une approche européenne',
+      paragraphs: [
+        'Le caractère européen de Repero concerne l’espace de travail et sa gouvernance : la plateforme est conçue pour héberger et protéger les données de travail en Europe selon son architecture, tout en donnant davantage de visibilité sur la façon dont les projets sont organisés et traités.',
+        'Cela ne signifie pas que chaque modèle appelé est européen, ni que chaque demande est traitée au même endroit. Si vous choisissez un fournisseur externe, le contenu nécessaire à la demande suit aussi ses conditions de traitement. L’intérêt est de pouvoir faire ce choix sans renoncer à un cadre de travail européen pour vos données persistantes.'
+      ]
+    },
+    {
+      id: 'repero-multi-ia',
+      heading: 'Repero : un espace européen autour de plusieurs IA',
+      paragraphs: [
+        'Repero AI n’essaie pas d’être un nouveau modèle qui remplace GPT. Il fournit l’espace de travail autour de plusieurs modèles : celui où vous classez les conversations, gardez les documents utiles et reprenez les projets sans repartir de zéro.',
+        'C’est une approche utile pour les indépendants et les équipes qui veulent profiter de différents outils IA, sans disperser leur travail ni abandonner le contrôle de l’espace dans lequel il est conservé.'
+      ]
+    }
+  ]}
+  relatedHeading="À découvrir aussi"
+  relatedLinks={[
+    { href: '/fr/organiser-conversations-chatgpt', label: 'Organiser les conversations ChatGPT et le travail IA' },
+    { href: '/fr/securiser-ia-pme', label: 'Sécuriser l’usage de l’IA en PME' },
+    { href: '/fr/comment-ca-marche', label: 'Voir comment Repero fonctionne' },
+    { href: '/fr', label: 'Retour à l’accueil' }
+  ]}
+  ctaHeading="Travaillez avec plusieurs IA sans éparpiller vos projets."
+  ctaBody="Réunissez les conversations, documents et résultats utiles dans un espace européen conçu pour garder le fil."
+  ctaLabel="Essayer Repero AI gratuitement"
+/>

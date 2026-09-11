@@ -29,6 +29,12 @@ const entries: Entry[] = [
   { path: '/fr/comment-ca-marche', alternates: [{ lang: 'en', path: '/en/how-it-works' }] },
   { path: '/en/guide', alternates: [{ lang: 'fr', path: '/fr/guide' }] },
   { path: '/fr/guide', alternates: [{ lang: 'en', path: '/en/guide' }] },
+  { path: '/en/organize-ai-conversations', alternates: [{ lang: 'fr', path: '/fr/organiser-conversations-chatgpt' }] },
+  { path: '/fr/organiser-conversations-chatgpt', alternates: [{ lang: 'en', path: '/en/organize-ai-conversations' }] },
+  { path: '/en/secure-ai-for-small-business', alternates: [{ lang: 'fr', path: '/fr/securiser-ia-pme' }] },
+  { path: '/fr/securiser-ia-pme', alternates: [{ lang: 'en', path: '/en/secure-ai-for-small-business' }] },
+  { path: '/en/european-chatgpt-alternative', alternates: [{ lang: 'fr', path: '/fr/alternative-europeenne-chatgpt' }] },
+  { path: '/fr/alternative-europeenne-chatgpt', alternates: [{ lang: 'en', path: '/en/european-chatgpt-alternative' }] },
   { path: '/en/blog', alternates: [{ lang: 'fr', path: '/fr/blog' }] },
 ];
 

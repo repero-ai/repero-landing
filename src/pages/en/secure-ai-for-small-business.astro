@@ -1,0 +1,67 @@
+---
+import SeoIntentPage from '../../components/SeoIntentPage.astro';
+
+const site = 'https://repero.ai';
+const canonical = new URL('/en/secure-ai-for-small-business', site).href;
+const alternates = [{ lang: 'fr', href: new URL('/fr/securiser-ia-pme', site).href }];
+---
+<SeoIntentPage
+  lang="en"
+  title="How to use AI securely in a small business | Repero AI"
+  description="Practical principles for using AI in a small business while retaining clearer control over work data, workspaces and the providers you choose."
+  canonical={canonical}
+  alternates={alternates}
+  eyebrow="AI and business data"
+  heading="How can small businesses use AI securely without making work harder for their teams?"
+  intro="AI can save time on research, content and analysis. For a small business, the real question is how to use it without losing sight of where work information lives, who can access it and which provider processes a request."
+  sections={[
+    {
+      id: 'start-with-real-work',
+      heading: 'Start with real work, not fear',
+      paragraphs: [
+        'Teams already share briefs, meeting notes, documents, project data and client content with AI. Banning every use does not remove the need. A simpler approach is to set a clear framework for what can be processed, what needs review and what should not be sent.',
+        'That framework is easier to follow when work is organised by workspace or project. It gives useful information a consistent home instead of treating every conversation as an isolated case.'
+      ]
+    },
+    {
+      id: 'practical-principles',
+      heading: 'The everyday principles that make a difference',
+      paragraphs: [
+        'A sound approach does not require every colleague to become an infrastructure expert. It makes the right habits clear: work in the right space, know which model is being used and keep important outcomes where the team can return to them.',
+        'For a small business, the practical topics are where work data is stored, how projects are separated, who has access, how data is encrypted and whether a suitable provider can be chosen for the request.'
+      ],
+      bullets: [
+        'Create separate workspaces for projects and clients',
+        'Keep documents and decisions with their context',
+        'Choose the provider or model that suits the task',
+        'Understand what information is sent with an AI request'
+      ]
+    },
+    {
+      id: 'external-model',
+      heading: 'What happens when you use an external model?',
+      paragraphs: [
+        'Where this falls within its platform architecture, Repero hosts persistent workspace data in Europe and protects it with encryption. This is the workspace where you organise projects, conversations and documents.',
+        'When a request calls an external model, the content needed to complete it must be sent to the provider you selected. Its processing also depends on that provider’s terms and infrastructure. This distinction matters: it lets you choose a model with a clear view of the trade-off, without pretending every kind of processing is the same.'
+      ]
+    },
+    {
+      id: 'repero-for-small-business',
+      heading: 'A European workspace for using AI without giving up control of your work data',
+      paragraphs: [
+        'Repero AI is designed to give AI work a clearer frame: organised workspaces, protected work data and a choice between different providers or models for the task. European providers or models can be preferred when they are relevant to your needs.',
+        'This is not a blanket legal promise. It is a more practical way to work: retain control of the workspace where projects live and understand the route an AI request takes.'
+      ]
+    }
+  ]}
+  relatedHeading="Keep exploring"
+  relatedLinks={[
+    { href: '/en/trust/ai', label: 'Understand Repero’s approach to AI and transparency' },
+    { href: '/en/european-chatgpt-alternative', label: 'Explore the European AI workspace approach' },
+    { href: '/en/organize-ai-conversations', label: 'Organise AI conversations by project' },
+    { href: '/en', label: 'Back to the homepage' }
+  ]}
+  ctaHeading="Give your team’s AI work a clear frame."
+  ctaBody="Bring projects and useful outcomes together in a workspace built for organisation, model choice and continuity."
+  ctaLabel="Try Repero AI for free"
+/>

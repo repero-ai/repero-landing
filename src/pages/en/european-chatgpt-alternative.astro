@@ -1,0 +1,67 @@
+---
+import SeoIntentPage from '../../components/SeoIntentPage.astro';
+
+const site = 'https://repero.ai';
+const canonical = new URL('/en/european-chatgpt-alternative', site).href;
+const alternates = [{ lang: 'fr', href: new URL('/fr/alternative-europeenne-chatgpt', site).href }];
+---
+<SeoIntentPage
+  lang="en"
+  title="A European ChatGPT alternative: a multi-model AI workspace | Repero AI"
+  description="Discover a European approach to ChatGPT: a workspace for organising projects, documents and generated content around multiple AI models."
+  canonical={canonical}
+  alternates={alternates}
+  eyebrow="European AI workspace"
+  heading="A European alternative to ChatGPT for working with multiple AI models"
+  intro="Looking for a ChatGPT alternative does not always mean replacing one model with another. Often, the real need is a stable workspace around models, where projects, documents and outcomes stay organised."
+  sections={[
+    {
+      id: 'one-model-is-not-always-enough',
+      heading: 'One model is not always the right unit of work',
+      paragraphs: [
+        'ChatGPT, Claude, Mistral and other models each have strengths. Depending on the task, you may want speed, strong writing, a different reasoning approach or a particular provider. Changing models can be useful; rebuilding your whole working context every time is not.',
+        'Durable work is not limited to the model that produced an answer. It includes the project, documents, sources, selected versions and decisions made along the way.'
+      ]
+    },
+    {
+      id: 'the-workspace-layer',
+      heading: 'The layer between models and your work',
+      paragraphs: [
+        'An AI workspace provides an anchor point. It organises exchanges and content around the project instead of letting a model or provider alone determine how you find and continue your work.',
+        'That lets you keep useful material in one place while selecting the most suitable model for a task. Continuity belongs to your workspace, not to a single chat history.'
+      ],
+      bullets: [
+        'A project that brings conversations, sources and documents together',
+        'Generated content that can become persistent documents',
+        'Model choice that follows the task, not the other way around',
+        'Context that is easier to return to over time'
+      ]
+    },
+    {
+      id: 'what-european-means',
+      heading: 'What a European approach adds',
+      paragraphs: [
+        'Repero’s European positioning concerns the workspace and its governance: according to its platform architecture, the platform is designed to host and protect work data in Europe while giving clearer visibility into how projects are organised and handled.',
+        'It does not mean every model called is European, or that every request is processed in the same place. When you choose an external provider, the content required for the request is also subject to its processing conditions. The value is being able to make that choice without giving up a European framework for persistent work data.'
+      ]
+    },
+    {
+      id: 'repero-multi-model',
+      heading: 'Repero: a European workspace around multiple AI models',
+      paragraphs: [
+        'Repero AI does not try to be a new model that replaces GPT. It provides the workspace around multiple models: the place where you organise conversations, keep useful documents and resume projects without starting over.',
+        'It is a useful approach for independents and teams that want to benefit from different AI tools without scattering their work or giving up control of the space where it is kept.'
+      ]
+    }
+  ]}
+  relatedHeading="Keep exploring"
+  relatedLinks={[
+    { href: '/en/organize-ai-conversations', label: 'Organise ChatGPT conversations and AI work' },
+    { href: '/en/secure-ai-for-small-business', label: 'Use AI securely in a small business' },
+    { href: '/en/how-it-works', label: 'See how Repero works' },
+    { href: '/en', label: 'Back to the homepage' }
+  ]}
+  ctaHeading="Work with multiple AI models without scattering your projects."
+  ctaBody="Bring conversations, documents and useful outcomes together in a European workspace designed to keep the thread."
+  ctaLabel="Try Repero AI for free"
+/>

@@ -1,0 +1,67 @@
+---
+import SeoIntentPage from '../../components/SeoIntentPage.astro';
+
+const site = 'https://repero.ai';
+const canonical = new URL('/fr/securiser-ia-pme', site).href;
+const alternates = [{ lang: 'en', href: new URL('/en/secure-ai-for-small-business', site).href }];
+---
+<SeoIntentPage
+  lang="fr"
+  title="Sécuriser l’usage de l’IA en PME | Repero AI"
+  description="Des principes concrets pour utiliser l’IA en PME tout en gardant une meilleure maîtrise des données, des espaces de travail et des fournisseurs choisis."
+  canonical={canonical}
+  alternates={alternates}
+  eyebrow="IA et données d’entreprise"
+  heading="Comment sécuriser l’usage de l’IA en PME sans compliquer le travail des équipes ?"
+  intro="L’IA peut faire gagner du temps sur les recherches, les contenus et les analyses. Pour une PME, le vrai enjeu est de l’utiliser sans perdre de vue où vivent les informations de travail, qui y accède et quel fournisseur traite une demande."
+  sections={[
+    {
+      id: 'partir-des-usages-reels',
+      heading: 'Partir des usages réels, pas de la peur',
+      paragraphs: [
+        'Les équipes partagent déjà avec l’IA des briefs, des notes de réunion, des documents, des données de projet ou des contenus clients. Interdire tous les usages ne règle pas le besoin ; mieux vaut créer un cadre simple pour distinguer ce qui peut être traité, ce qui mérite une validation et ce qui ne doit pas être envoyé.',
+        'Ce cadre devient plus facile à appliquer lorsque le travail est rangé par espace ou par projet. Il donne un endroit cohérent aux informations utiles et évite de traiter chaque conversation comme un cas isolé.'
+      ]
+    },
+    {
+      id: 'principes-pratiques',
+      heading: 'Les principes qui font une différence au quotidien',
+      paragraphs: [
+        'Une approche saine ne demande pas à chaque collaborateur de devenir expert en infrastructure. Elle rend les bons réflexes évidents : travailler dans le bon espace, savoir quel modèle est utilisé et garder les résultats importants là où l’équipe peut les reprendre.',
+        'Pour une PME, les sujets les plus concrets sont le stockage des données de travail, la séparation entre projets, les accès, le chiffrement et la possibilité de choisir un fournisseur adapté à la demande.'
+      ],
+      bullets: [
+        'Créer des espaces distincts pour les dossiers et clients',
+        'Conserver les documents et décisions avec leur contexte',
+        'Choisir le fournisseur ou le modèle adapté au besoin',
+        'Savoir quelles informations sont envoyées lors d’une demande IA'
+      ]
+    },
+    {
+      id: 'modele-externe',
+      heading: 'Que se passe-t-il lorsque vous utilisez un modèle externe ?',
+      paragraphs: [
+        'Repero héberge en Europe les données persistantes de l’espace de travail lorsque cela relève de son architecture de plateforme, et protège ces données par chiffrement. Cela concerne le cadre dans lequel vous organisez projets, conversations et documents.',
+        'Lorsqu’une demande appelle un modèle externe, le contenu nécessaire à son exécution doit être transmis au fournisseur que vous avez choisi. Son traitement dépend alors aussi des conditions et de l’infrastructure de ce fournisseur. Cette distinction est importante : elle permet de choisir un modèle en connaissance de cause, sans faire semblant que tous les traitements sont identiques.'
+      ]
+    },
+    {
+      id: 'repero-pour-pme',
+      heading: 'Un espace de travail européen pour utiliser l’IA sans abandonner le contrôle de vos données',
+      paragraphs: [
+        'Repero AI est conçu pour donner un cadre plus clair au travail avec l’IA : des espaces organisés, des données de travail protégées, et un choix entre différents fournisseurs ou modèles selon le besoin. Des fournisseurs ou modèles européens peuvent être privilégiés lorsqu’ils sont pertinents pour votre usage.',
+        'Ce n’est pas une promesse juridique toute faite. C’est une façon plus concrète de travailler : garder la maîtrise de l’espace où vivent vos projets et comprendre le chemin pris par une demande IA.'
+      ]
+    }
+  ]}
+  relatedHeading="À lire aussi"
+  relatedLinks={[
+    { href: '/fr/trust/ai', label: 'Comprendre l’approche IA et transparence de Repero' },
+    { href: '/fr/alternative-europeenne-chatgpt', label: 'Découvrir l’espace de travail IA européen' },
+    { href: '/fr/organiser-conversations-chatgpt', label: 'Organiser les conversations IA par projet' },
+    { href: '/fr', label: 'Retour à l’accueil' }
+  ]}
+  ctaHeading="Donnez un cadre clair au travail de votre équipe avec l’IA."
+  ctaBody="Centralisez les projets et les résultats utiles dans un espace pensé pour l’organisation, le choix des modèles et la continuité du travail."
+  ctaLabel="Essayer Repero AI gratuitement"
+/>
