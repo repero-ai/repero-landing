@@ -10,8 +10,8 @@ const heroScreen = frProductScreens.find((screen) => screen.id === 'active-conte
 ---
 <BaseLayout
   lang="fr"
-  title="Repero AI | Votre travail avec l’IA, enfin organisé"
-  description="Espace de travail IA européen pour centraliser, structurer et retrouver vos conversations, documents et artefacts."
+  title="Repero AI | Un espace de travail IA européen, organisé et sous votre contrôle"
+  description="Réunissez conversations, documents, recherches et contenus générés dans des espaces de travail IA organisés, hébergés en Europe."
   canonical={canonical}
   ogType="website"
   twitterCard="summary_large_image"
@@ -22,21 +22,13 @@ const heroScreen = frProductScreens.find((screen) => screen.id === 'active-conte
     <section class="grid gap-8 py-8 md:grid-cols-[1.15fr_.85fr] md:items-center md:py-14">
       <div class="space-y-6">
         <p class="eyebrow">Espace de travail IA européen</p>
-        <h1 class="headline">Votre travail avec l’IA, enfin organisé.</h1>
-        <p class="lead">Repero AI aide à centraliser, structurer et retrouver vos recherches, vos imports, vos contenus générés et vos décisions.</p>
+        <h1 class="headline">Travaillez avec l’IA sans perdre vos idées — ni le contrôle de vos données.</h1>
+        <p class="lead">Repero AI réunit vos conversations, documents, recherches et contenus générés dans des espaces de travail organisés. Utilisez différents modèles d’IA, gardez ce qui compte et reprenez vos projets là où vous les avez laissés.</p>
         <div class="flex flex-wrap items-center gap-x-4 gap-y-3">
-          <a class="btn-primary" href="https://app.repero.ai" target="_blank">Accéder à Repero AI</a>
+          <a class="btn-primary" href="https://app.repero.ai" target="_blank">Essayer gratuitement</a>
           <a class="btn-secondary" href="/fr/comment-ca-marche">Voir comment ça marche</a>
         </div>
-        <div class="flex flex-wrap gap-2 pt-2">
-          <span class="chip">Recherche</span>
-          <span class="chip">Import</span>
-          <span class="chip">Génération</span>
-          <span class="chip">Décision</span>
-        </div>
-        <p class="text-sm text-slate-300">
-          <a class="underline decoration-slate-500/50 underline-offset-4 hover:text-white" href="/fr/cas-usages">Voir les cas d’usage</a>
-        </p>
+        <p class="text-sm text-slate-300">Aucune clé API à configurer · Commencez gratuitement</p>
       </div>
 
       {heroScreen && (
@@ -55,22 +47,38 @@ const heroScreen = frProductScreens.find((screen) => screen.id === 'active-conte
       )}
     </section>
 
-    <section class="grid gap-4 md:grid-cols-3">
+    <section class="grid gap-4 py-8 md:grid-cols-3 md:py-12" aria-label="Les bénéfices de Repero AI">
       <article class="feature-card">
-        <p class="eyebrow">Problème</p>
-        <h2 class="mt-3 text-2xl font-semibold text-white">Le travail utile se perd.</h2>
-        <p class="mt-3 text-sm leading-7 text-slate-300">Les discussions longues, les artefacts mélangés et les notes éparses rendent la reprise difficile.</p>
+        <h2 class="text-2xl font-semibold text-white">Vos conversations deviennent du travail.</h2>
+        <p class="mt-3 text-sm leading-7 text-slate-300">Gardez les réponses utiles, transformez-les en documents et retrouvez-les par projet au lieu de les perdre dans un historique interminable.</p>
       </article>
       <article class="feature-card">
-        <p class="eyebrow">Solution</p>
-        <h2 class="mt-3 text-2xl font-semibold text-white">Une couche organisée et intuitive.</h2>
-        <p class="mt-3 text-sm leading-7 text-slate-300">Repero AI rassemble conversations, documents et contenus générés dans un espace structuré.</p>
+        <h2 class="text-2xl font-semibold text-white">Les meilleures IA, réunies au même endroit.</h2>
+        <p class="mt-3 text-sm leading-7 text-slate-300">Choisissez parmi les modèles disponibles selon vos besoins, sans changer d’outil ni disperser votre travail.</p>
       </article>
       <article class="feature-card">
-        <p class="eyebrow">Direction</p>
-        <h2 class="mt-3 text-2xl font-semibold text-white">Européenne par conception.</h2>
-        <p class="mt-3 text-sm leading-7 text-slate-300">Conçu pour le contrôle, la transparence et la portabilité afin de renforcer la confiance.</p>
+        <h2 class="text-2xl font-semibold text-white">Vos données restent sous votre contrôle.</h2>
+        <p class="mt-3 text-sm leading-7 text-slate-300">Hébergement européen, chiffrement par espace de travail et choix du fournisseur d’IA : Repero est conçu pour vous laisser décider où et comment votre travail est traité.</p>
       </article>
+    </section>
+
+    <section class="section-shell px-6 py-8 md:px-8 md:py-10">
+      <p class="eyebrow">Pour différents rythmes de travail</p>
+      <h2 class="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl">Un espace pour faire avancer le travail qui compte.</h2>
+      <div class="mt-7 grid gap-4 md:grid-cols-3">
+        <article class="feature-card">
+          <h3 class="text-xl font-semibold text-white">Indépendants et créateurs</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Organisez projets clients, recherches, contenus et livrables dans des espaces distincts.</p>
+        </article>
+        <article class="feature-card">
+          <h3 class="text-xl font-semibold text-white">Équipes et PME</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Structurez le travail avec l’IA, partagez un cadre cohérent et maîtrisez mieux les données utilisées.</p>
+        </article>
+        <article class="feature-card">
+          <h3 class="text-xl font-semibold text-white">Travail documentaire</h3>
+          <p class="mt-3 text-sm leading-7 text-slate-300">Passez d’une conversation IA à des contenus persistants, modifiables et réutilisables.</p>
+        </article>
+      </div>
     </section>
   </main>
   <Footer lang="fr" />
