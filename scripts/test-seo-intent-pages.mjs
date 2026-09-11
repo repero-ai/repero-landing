@@ -78,4 +78,14 @@ for (const page of pages) {
 
 if (descriptions.size !== pages.length) throw new Error('SEO intent page descriptions must be unique');
 
+for (const [file, paths] of Object.entries({
+  'fr/guide.html': ['/fr/organiser-conversations-chatgpt', '/fr/securiser-ia-pme', '/fr/alternative-europeenne-chatgpt'],
+  'en/guide.html': ['/en/organize-ai-conversations', '/en/secure-ai-for-small-business', '/en/european-chatgpt-alternative'],
+  'fr/blog.html': ['/fr/organiser-conversations-chatgpt', '/fr/securiser-ia-pme', '/fr/alternative-europeenne-chatgpt'],
+  'en/blog.html': ['/en/organize-ai-conversations', '/en/secure-ai-for-small-business', '/en/european-chatgpt-alternative']
+})) {
+  const html = read(file);
+  for (const path of paths) expect(html, `href="${path}"`, `${file} editorial cluster link`);
+}
+
 console.log('SEO intent pages build assertions passed.');
