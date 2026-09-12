@@ -216,7 +216,7 @@
   min-height: 100vh;
   background: #020617;
   color: #e5e7eb;
-  padding: 72px 20px;
+  padding: 72px 20px 48px;
 }
 
 .legal-container {
@@ -274,7 +274,7 @@
 
 @media (max-width: 640px) {
   .legal-page {
-    padding: 32px 14px;
+    padding: 32px 14px 48px;
   }
 
   .legal-container {
