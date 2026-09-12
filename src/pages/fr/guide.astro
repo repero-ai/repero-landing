@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { getAlternateLocalePath } from '../../lib/locale';
 
 const site = 'https://repero.ai';
 const canonical = new URL('/fr/guide', site).href;
@@ -71,7 +72,7 @@ const faqSchema = {
   twitterCard="summary_large_image"
   schema={faqSchema}
 >
-  <Header lang="fr" />
+  <Header lang="fr" alternateHref={getAlternateLocalePath('fr', alternates)} />
   <main class="page-shell pb-12">
     <section class="section-shell px-6 py-10 md:px-10 md:py-14">
       <div class="max-w-4xl space-y-5">

@@ -12,8 +12,9 @@
     "test:fr-product-pages": "node scripts/test-fr-product-pages.mjs",
     "test:seo-intent-pages": "node scripts/test-seo-intent-pages.mjs",
     "test:seo-baseline": "node scripts/test-seo-baseline.mjs",
+    "test:language-switch": "node scripts/test-language-switch.mjs",
     "verify:no-redirects": "node scripts/verify-no-redirects.mjs",
-    "check": "npm run build && npm run test:blog-build && npm run test:fr-product-pages && npm run test:seo-intent-pages && npm run test:seo-baseline && npm run verify:no-redirects"
+    "check": "npm run build && npm run test:blog-build && npm run test:fr-product-pages && npm run test:seo-intent-pages && npm run test:seo-baseline && npm run test:language-switch && npm run verify:no-redirects"
   },
   "dependencies": {
     "astro": "^5.8.0",

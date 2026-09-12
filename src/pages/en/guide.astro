@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { getAlternateLocalePath } from '../../lib/locale';
 const site = 'https://repero.ai';
 const canonical = new URL('/en/guide', site).href;
 const alternates = [{ lang: 'fr', href: new URL('/fr/guide', site).href }];
@@ -15,7 +16,7 @@ const sections = [
 ];
 ---
 <BaseLayout lang="en" title="Repero AI guide | Organize and retrieve your AI work" description="A practical guide to using projects, conversations, sources, and artifacts in Repero AI." canonical={canonical} alternates={alternates}>
-  <Header lang="en" />
+  <Header lang="en" alternateHref={getAlternateLocalePath('en', alternates)} />
   <main class="page-shell pb-12">
     <p class="mb-4 text-sm text-slate-400">Translated and adapted from French by AI.</p>
     <section class="section-shell px-6 py-10 md:px-10 md:py-14"><div class="max-w-3xl space-y-5"><p class="eyebrow">Guide</p><h1 class="headline text-4xl md:text-5xl">Organize your AI work without losing the thread.</h1><p class="lead">A practical introduction to projects, conversations, sources, and artifacts in Repero AI.</p></div></section>
