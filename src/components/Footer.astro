@@ -10,6 +10,7 @@ const isEn = lang === 'en';
       <img src="/brand/flat-web/repero-mark-flat-inverted-transparent.svg" alt="Repero AI" class="h-8 w-8" width="32" height="32" />
       <div class="flex flex-wrap justify-center gap-2 md:gap-4">
         <a href={`/${lang}/trust/ai`} class="text-slate-400 hover:text-slate-300 transition-colors">{isEn ? 'AI transparency' : 'Transparence IA'}</a>
+        <a href={isEn ? '/en/pricing' : '/fr/tarifs'} class="text-slate-400 hover:text-slate-300 transition-colors">{isEn ? 'Pricing' : 'Tarifs'}</a>
         <a href={`/${lang}/privacy`} class="text-slate-400 hover:text-slate-300 transition-colors">{isEn ? 'Privacy' : 'Confidentialité'}</a>
         <a href={`/${lang}/terms`} class="text-slate-400 hover:text-slate-300 transition-colors">{isEn ? 'Terms' : 'Conditions'}</a>
       </div>

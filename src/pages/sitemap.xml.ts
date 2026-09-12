@@ -29,6 +29,8 @@ const entries: Entry[] = [
   { path: '/fr/comment-ca-marche', alternates: [{ lang: 'en', path: '/en/how-it-works' }] },
   { path: '/en/guide', alternates: [{ lang: 'fr', path: '/fr/guide' }] },
   { path: '/fr/guide', alternates: [{ lang: 'en', path: '/en/guide' }] },
+  { path: '/en/pricing', alternates: [{ lang: 'fr', path: '/fr/tarifs' }] },
+  { path: '/fr/tarifs', alternates: [{ lang: 'en', path: '/en/pricing' }] },
   { path: '/en/organize-ai-conversations', alternates: [{ lang: 'fr', path: '/fr/organiser-conversations-chatgpt' }] },
   { path: '/fr/organiser-conversations-chatgpt', alternates: [{ lang: 'en', path: '/en/organize-ai-conversations' }] },
   { path: '/en/secure-ai-for-small-business', alternates: [{ lang: 'fr', path: '/fr/securiser-ia-pme' }] },

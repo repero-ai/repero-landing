@@ -21,9 +21,11 @@ const isEn = lang === 'en';
       {isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/en/how-it-works">How it works</a>}
       {isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/en/guide">Guide</a>}
       {isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/en/blog">Blog</a>}
+      {isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/en/pricing">Pricing</a>}
       {!isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/fr/comment-ca-marche">Comment ça marche</a>}
       {!isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/fr/guide">Guide</a>}
       {!isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/fr/blog">Blog</a>}
+      {!isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/fr/tarifs">Tarifs</a>}
       <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="https://app.repero.ai">{isEn ? 'Access' : 'Accès'}</a>
       <a class="chip whitespace-nowrap md:ml-1" href={isEn ? '/fr' : '/en'}>{isEn ? 'FR' : 'EN'}</a>
     </nav>

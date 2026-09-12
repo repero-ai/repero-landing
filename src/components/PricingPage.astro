@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import { pricingPlans, type PricingLanguage } from '../data/pricing';
+
+interface Props { lang: PricingLanguage; }
+
+const { lang } = Astro.props;
+const isEn = lang === 'en';
+const plans = pricingPlans[lang];
+const site = 'https://repero.ai';
+const canonical = new URL(isEn ? '/en/pricing' : '/fr/tarifs', site).href;
+const alternates = [{ lang: isEn ? 'fr' as const : 'en' as const, href: new URL(isEn ? '/fr/tarifs' : '/en/pricing', site).href }];
+const copy = isEn
+  ? {
+      title: 'Repero AI pricing | Plans for organised AI work',
+      description: 'Compare Repero AI plans for organised AI work, model choice and document space. Prices are shown excluding VAT.',
+      eyebrow: 'Pricing',
+      heading: 'Choose the plan that fits how you work with AI.',
+      intro: 'Repero brings GPT, Claude and Mistral together in an organised workspace, with different levels of control depending on how you use AI.',
+      priceNote: 'Monthly prices shown excluding VAT.',
+      billingNote: 'Billing details are presented in the application before any purchase.',
+      vatNote: 'VAT-inclusive example calculated using Belgium’s 21% standard rate. Final VAT is determined during subscription based on your country and status.',
+      bestFor: 'Who it is for',
+      start: 'Start with Repero',
+      compareEyebrow: 'Compare the essentials',
+      compareHeading: 'The differences that matter when choosing.',
+      modelAccess: 'Model choice',
+      aiUsage: 'Included AI usage',
+      documentSpace: 'Document space',
+      flagshipNote: '[1] Flagship models: the most advanced models use more of your included usage allowance.',
+      sharedEyebrow: 'Included with Repero',
+      sharedHeading: 'A simpler place to work with AI.',
+      shared: ['A Repero workspace hosted in Europe', 'Encrypted workspace data and storage', 'One account to access your Repero workspace'],
+      trustLink: 'How Repero approaches AI and data',
+      privacyLink: 'Read the privacy information',
+      appNote: 'Repero is live: open the application to get started.'
+    }
+  : {
+      title: 'Tarifs Repero AI | Des offres pour organiser son travail avec l’IA',
+      description: 'Comparez les offres Repero AI pour organiser votre travail avec l’IA, choisir vos modèles et conserver vos documents. Prix hors TVA.',
+      eyebrow: 'Tarifs',
+      heading: 'Choisissez l’offre qui correspond à votre façon de travailler avec l’IA.',
+      intro: 'Repero réunit GPT, Claude et Mistral dans un espace de travail organisé, avec plusieurs niveaux de contrôle selon votre usage.',
+      priceNote: 'Prix mensuels hors TVA.',
+      billingNote: 'Les détails de facturation sont présentés dans l’application avant tout achat.',
+      vatNote: 'Exemple TVAC calculé avec le taux belge de 21 %. Le montant final de TVA est déterminé lors de la souscription selon votre pays et votre statut.',
+      bestFor: 'Pour qui',
+      start: 'Commencer avec Repero',
+      compareEyebrow: 'Comparer l’essentiel',
+      compareHeading: 'Les différences qui comptent pour choisir.',
+      modelAccess: 'Choix des modèles',
+      aiUsage: 'Usage IA inclus',
+      documentSpace: 'Espace documentaire',
+      flagshipNote: '[1] Modèles de pointe : les modèles les plus avancés consomment davantage de votre enveloppe incluse.',
+      sharedEyebrow: 'Inclus avec Repero',
+      sharedHeading: 'Un endroit plus simple pour travailler avec l’IA.',
+      shared: ['Un espace Repero hébergé en Europe', 'Données et stockage de l’espace chiffrés', 'Un seul compte pour accéder à votre espace Repero'],
+      trustLink: 'Comprendre l’approche IA et données de Repero',
+      privacyLink: 'Lire les informations de confidentialité',
+      appNote: 'Repero est déjà disponible : ouvrez l’application pour commencer.'
+    };
+---
+<BaseLayout lang={lang} title={copy.title} description={copy.description} canonical={canonical} alternates={alternates} ogType="website" twitterCard="summary_large_image">
+  <Header lang={lang} />
+  <main class="page-shell pb-12">
+    <section class="section-shell px-6 py-10 md:px-10 md:py-14">
+      <div class="max-w-3xl space-y-5">
+        <p class="eyebrow">{copy.eyebrow}</p>
+        <h1 class="headline text-4xl md:text-5xl">{copy.heading}</h1>
+        <p class="lead text-lg md:text-xl">{copy.intro}</p>
+      </div>
+    </section>
+
+    <section class="pricing-grid gap-4 py-8 sm:grid-cols-2 lg:grid-cols-4 md:py-12" aria-label={copy.eyebrow}>
+      {plans.map((plan) => (
+        <article class="pricing-card feature-card">
+          <div class="pricing-card__name"><h2 class="text-2xl font-semibold text-white">{plan.name}</h2></div>
+          <div class="pricing-card__price">
+              <p class="flex items-baseline gap-2 whitespace-nowrap text-xl font-bold tracking-tight text-sky-300 sm:text-2xl">
+                <span>{plan.price}</span>
+                {plan.priceSuffix && <span class="text-sm font-medium text-slate-400">{plan.priceSuffix}</span>}
+              </p>
+              {plan.vatExample && <p class="mt-1 whitespace-nowrap text-sm leading-6 text-slate-400">{plan.vatExample}</p>}
+          </div>
+          <p class="pricing-card__audience text-sm leading-7 text-slate-300">{plan.bestFor}</p>
+          <div class="pricing-card__capability border-t border-slate-800 text-sm leading-6 text-slate-300">
+            {plan.modelAccess.map((capability) => <p>{capability}</p>)}
+          </div>
+          <p class="pricing-card__capability border-t border-slate-800 pt-3 text-sm leading-6 text-slate-300">{plan.documentSpace}</p>
+          <p class="pricing-card__usage text-sm font-medium text-sky-200">{plan.aiUsage}</p>
+          <a class="pricing-card__cta btn-primary" href="https://app.repero.ai" target="_blank">{copy.start}</a>
+        </article>
+      ))}
+    </section>
+    <div class="-mt-3 space-y-1 pb-8 text-sm leading-7 text-slate-400 md:-mt-5 md:pb-12">
+      <p>{copy.flagshipNote}</p>
+      <p>{copy.vatNote}</p>
+      <p>{copy.billingNote}</p>
+    </div>
+  </main>
+  <Footer lang={lang} />
+</BaseLayout>
