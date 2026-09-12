@@ -1,6 +1,10 @@
 ---
-interface Props { lang: 'en' | 'fr'; }
-const { lang } = Astro.props;
+interface Props {
+  lang: 'en' | 'fr';
+  alternateHref?: string;
+}
+
+const { lang, alternateHref } = Astro.props;
 const isEn = lang === 'en';
 ---
 <header class="page-shell py-5">
@@ -27,7 +31,7 @@ const isEn = lang === 'en';
       {!isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/fr/blog">Blog</a>}
       {!isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/fr/tarifs">Tarifs</a>}
       <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="https://app.repero.ai">{isEn ? 'Access' : 'Accès'}</a>
-      <a class="chip whitespace-nowrap md:ml-1" href={isEn ? '/fr' : '/en'}>{isEn ? 'FR' : 'EN'}</a>
+      <a class="chip whitespace-nowrap md:ml-1" href={alternateHref ?? (isEn ? '/fr' : '/en')}>{isEn ? 'FR' : 'EN'}</a>
     </nav>
   </div>
 </header>

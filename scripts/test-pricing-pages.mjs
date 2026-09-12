@@ -20,6 +20,12 @@ function reject(value, needle, label) {
 const fr = read('fr/tarifs.html');
 const en = read('en/pricing.html');
 
+function expectLanguageSwitch(html, target, label) {
+  const chip = /<a class="chip whitespace-nowrap md:ml-1" href="([^"]+)">(FR|EN)<\/a>/.exec(html);
+  if (!chip) throw new Error(`${label} must render a language switch chip`);
+  if (chip[1] !== target) throw new Error(`${label} language switch must point to ${target}, received ${chip[1]}`);
+}
+
 for (const [html, label, path, alternate] of [
   [fr, 'French pricing', '/fr/tarifs', 'https://repero.ai/en/pricing'],
   [en, 'English pricing', '/en/pricing', 'https://repero.ai/fr/tarifs']
@@ -31,6 +37,9 @@ for (const [html, label, path, alternate] of [
   reject(html, 'clé API', `${label} API-key message`);
   reject(html, '—', `${label} misleading document-space dash`);
 }
+
+expectLanguageSwitch(fr, '/en/pricing', 'French pricing');
+expectLanguageSwitch(en, '/fr/tarifs', 'English pricing');
 
 for (const value of ['0 €', '9 € / mois', '19 € / mois', '49 € / mois', 'HTVA']) expect(fr, value, 'French pricing');
 for (const value of ['€0', '€9 / month', '€19 / month', '€49 / month', 'excl. VAT']) expect(en, value, 'English pricing');
