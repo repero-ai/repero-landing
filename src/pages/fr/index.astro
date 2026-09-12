@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { getAlternateLocalePath } from '../../lib/locale';
 import { frProductScreens } from '../../data/frProductScreens';
 const site = 'https://repero.ai';
 const canonical = new URL('/fr', site).href;
@@ -17,7 +18,7 @@ const heroScreen = frProductScreens.find((screen) => screen.id === 'active-conte
   twitterCard="summary_large_image"
   alternates={alternates}
 >
-  <Header lang="fr" />
+  <Header lang="fr" alternateHref={getAlternateLocalePath('fr', alternates)} />
   <main class="page-shell pb-12">
     <section class="grid gap-8 py-8 md:grid-cols-[1.15fr_.85fr] md:items-center md:py-14">
       <div class="space-y-6">

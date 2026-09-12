@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
+import { getAlternateLocalePath } from '../../../lib/locale';
 import { buildBlogIndexPath, buildBlogPostPath, formatBlogDate, getPublishedBlogPosts, getReadingTimeMinutes } from '../../../lib/blog';
 import { BRAND_LOGO, DEFAULT_OG_IMAGE, SITE_URL, absoluteUrl } from '../../../config/site';
 
@@ -49,7 +50,7 @@ const schema = {
   twitterCard="summary_large_image"
   schema={schema}
 >
-  <Header lang="fr" />
+  <Header lang="fr" alternateHref={getAlternateLocalePath('fr', alternates)} />
   <main class="page-shell pb-12">
     <section class="section-shell px-6 py-10 md:px-10 md:py-14">
       <div class="max-w-3xl space-y-5">

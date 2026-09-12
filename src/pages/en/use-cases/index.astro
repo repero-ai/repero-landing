@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
+import { getAlternateLocalePath } from '../../../lib/locale';
 const site = 'https://repero.ai';
 const canonical = new URL('/en/use-cases', site).href;
 const alternates = [{ lang: 'fr', href: new URL('/fr/cas-usages', site).href }];
@@ -15,7 +16,7 @@ const alternates = [{ lang: 'fr', href: new URL('/fr/cas-usages', site).href }];
   twitterCard="summary_large_image"
   alternates={alternates}
 >
-  <Header lang="en" />
+  <Header lang="en" alternateHref={getAlternateLocalePath('en', alternates)} />
   <main class="page-shell py-10">
     <section class="surface">
       <p class="eyebrow">Use cases</p>

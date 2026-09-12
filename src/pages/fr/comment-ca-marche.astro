@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { getAlternateLocalePath } from '../../lib/locale';
 import ProductStorySection from '../../components/ProductStorySection.astro';
 import { frProductScreens } from '../../data/frProductScreens';
 
@@ -25,7 +26,7 @@ const searchScreen = frProductScreens.find((screen) => screen.id === 'search-con
   twitterCard="summary_large_image"
   alternates={alternates}
 >
-  <Header lang="fr" />
+  <Header lang="fr" alternateHref={getAlternateLocalePath('fr', alternates)} />
   <main class="page-shell pb-12">
     <section class="section-shell px-6 py-10 md:px-10 md:py-14">
       <div class="max-w-3xl space-y-5">

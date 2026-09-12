@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import { getAlternateLocalePath } from '../../lib/locale';
 import ProductStorySection from '../../components/ProductStorySection.astro';
 import { frProductScreens } from '../../data/frProductScreens';
 
@@ -18,7 +19,7 @@ const steps = [
 ];
 ---
 <BaseLayout lang="en" title="How it works | Repero AI" description="See how Repero AI keeps projects, conversations, documents, sources, and artifacts together so your AI work remains easy to find." canonical={canonical} alternates={alternates}>
-  <Header lang="en" />
+  <Header lang="en" alternateHref={getAlternateLocalePath('en', alternates)} />
   <main class="page-shell pb-12">
     <p class="mb-4 text-sm text-slate-400">Translated and adapted from French by AI.</p>
     <section class="section-shell px-6 py-10 md:px-10 md:py-14">
