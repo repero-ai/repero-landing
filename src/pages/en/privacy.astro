@@ -3,7 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getAlternateLocalePath } from '../../lib/locale';
-const lastUpdated = "June 2026";
+import {
+  COMPANY_LEGAL_NAME,
+  COMPANY_TRADE_NAME,
+  COMPANY_REGISTRATION_NUMBER,
+  COMPANY_EMAIL_PRIVACY
+} from '../../config/company';
+const lastUpdated = "September 2026";
 const canonical = 'https://repero.ai/en/privacy';
 const alternates = [{ lang: 'fr' as const, href: 'https://repero.ai/fr/privacy' }];
 ---
@@ -16,22 +22,25 @@ const alternates = [{ lang: 'fr' as const, href: 'https://repero.ai/fr/privacy' 
     <p class="muted">Last updated: {lastUpdated}</p>
 
     <p>
-      This Privacy Policy explains how Repero AI collects, uses, stores, and protects personal data when you use our website, application, and related services.
+      This Privacy Policy explains how {COMPANY_TRADE_NAME} collects, uses, stores, and protects personal data when you use our website, application, and related services.
     </p>
 
     <p>
-      Repero AI is designed to help users preserve, organize, retrieve, and reuse information, documents, AI-generated outputs, and related work. Because the service may process user-uploaded content and AI-assisted outputs, privacy and data protection are important parts of the product.
+      {COMPANY_TRADE_NAME} is designed to help users preserve, organize, retrieve, and reuse information, documents, AI-generated outputs, and related work. Because the service may process user-uploaded content and AI-assisted outputs, privacy and data protection are important parts of the product.
     </p>
 
     <h2>1. Data controller</h2>
     <p>
-      Repero AI is operated by Data Saas Lab, located in Belgium.
+      {COMPANY_TRADE_NAME} is operated by <span class="legal-todo">{COMPANY_LEGAL_NAME}</span>, located in Belgium.
     </p>
     <p>
-      Contact: <a href="mailto:privacy@repero.ai">privacy@repero.ai</a>
+      Contact: <a href={`mailto:${COMPANY_EMAIL_PRIVACY}`}>{COMPANY_EMAIL_PRIVACY}</a>
     </p>
     <p>
-      Business registration number: [Coming soon]
+      Business registration number (KBO/BCE): <span class="legal-todo">{COMPANY_REGISTRATION_NUMBER}</span>
+    </p>
+    <p>
+      Full company identification is available on our <a href="/en/legal">Legal Notice</a> page.
     </p>
 
     <h2>2. Personal data we collect</h2>
@@ -135,10 +144,10 @@ const alternates = [{ lang: 'fr' as const, href: 'https://repero.ai/fr/privacy' 
 
     <h2>8. Cookies and similar technologies</h2>
     <p>
-      Repero AI may use cookies or similar technologies for authentication, session management, security, preferences, analytics, and service functionality.
+      This marketing website does not currently set any non-essential cookies. The application at app.repero.ai, being an authenticated web application, uses cookies or similar mechanisms for functions such as session management and sign-in. See our <a href="/en/cookies">Cookie Policy</a> for details and current status, including an open item to complete a dedicated cookie audit of the application.
     </p>
     <p>
-      Essential cookies are required for the service to function. Optional cookies, if used, may require your consent depending on applicable law.
+      Any cookie that requires your consent under applicable law will only be set after you have given that consent.
     </p>
 
     <h2>9. Data retention</h2>
@@ -176,7 +185,7 @@ const alternates = [{ lang: 'fr' as const, href: 'https://repero.ai/fr/privacy' 
     </ul>
     <p>
       To exercise your rights, contact us at:
-      <a href="mailto:privacy@repero.ai">privacy@repero.ai</a>
+      <a href={`mailto:${COMPANY_EMAIL_PRIVACY}`}>{COMPANY_EMAIL_PRIVACY}</a>
     </p>
 
     <h2>12. Children</h2>
@@ -197,7 +206,7 @@ const alternates = [{ lang: 'fr' as const, href: 'https://repero.ai/fr/privacy' 
     <h2>15. Contact</h2>
     <p>
       For privacy questions or requests, contact us at:
-      <a href="mailto:privacy@repero.ai">privacy@repero.ai</a>
+      <a href={`mailto:${COMPANY_EMAIL_PRIVACY}`}>{COMPANY_EMAIL_PRIVACY}</a>
     </p>
   </section>
 </main>

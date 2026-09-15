@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getAlternateLocalePath } from '../../lib/locale';
+import {
+  COMPANY_LEGAL_NAME,
+  COMPANY_LEGAL_FORM,
+  COMPANY_TRADE_NAME,
+  COMPANY_REGISTERED_ADDRESS,
+  COMPANY_REGISTRATION_NUMBER,
+  COMPANY_VAT_NUMBER,
+  COMPANY_PHONE,
+  COMPANY_EMAIL_CONTACT,
+  HOSTING_PROVIDER
+} from '../../config/company';
+const lastUpdated = "Septembre 2026";
+const canonical = 'https://repero.ai/fr/mentions-legales';
+const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/legal' }];
+---
+
+<BaseLayout lang="fr" title="Mentions légales | Repero AI" description="Identification de l'entreprise et informations légales concernant Repero AI, conformément au droit belge." canonical={canonical} alternates={alternates}>
+  <Header lang="fr" alternateHref={getAlternateLocalePath('fr', alternates)} />
+<main class="legal-page">
+  <section class="legal-container">
+    <h1>Mentions légales</h1>
+    <p class="muted">Dernière mise à jour : {lastUpdated}</p>
+
+    <p>
+      Cette page identifie l'entreprise exploitant {COMPANY_TRADE_NAME} et fournit les informations de contact et d'immatriculation qui doivent rester accessibles de manière permanente et facile aux clients, conformément au Code de droit économique belge.
+    </p>
+
+    <h2>1. Identification de l'entreprise</h2>
+    <ul>
+      <li>Nom commercial : {COMPANY_TRADE_NAME}</li>
+      <li>Dénomination légale : <span class="legal-todo">{COMPANY_LEGAL_NAME}</span></li>
+      <li>Forme juridique : <span class="legal-todo">{COMPANY_LEGAL_FORM}</span></li>
+      <li>Siège social : <span class="legal-todo">{COMPANY_REGISTERED_ADDRESS}</span></li>
+      <li>Numéro d'entreprise (BCE/KBO) : <span class="legal-todo">{COMPANY_REGISTRATION_NUMBER}</span></li>
+      <li>Numéro de TVA : <span class="legal-todo">{COMPANY_VAT_NUMBER}</span></li>
+    </ul>
+
+    <h2>2. Contact</h2>
+    <ul>
+      <li>E-mail : <a href={`mailto:${COMPANY_EMAIL_CONTACT}`}>{COMPANY_EMAIL_CONTACT}</a></li>
+      <li>Téléphone : <span class="legal-todo">{COMPANY_PHONE}</span></li>
+    </ul>
+
+    <h2>3. Hébergement du site</h2>
+    <p>
+      Ce site est hébergé par {HOSTING_PROVIDER}. Cette information est fournie à titre de transparence et n'affecte pas l'identité ni la responsabilité de l'exploitant de {COMPANY_TRADE_NAME} décrit ci-dessus.
+    </p>
+
+    <h2>4. Documents associés</h2>
+    <p>
+      Pour les conditions régissant l'utilisation de {COMPANY_TRADE_NAME}, consultez nos <a href="/fr/terms">Conditions d'utilisation</a>. Pour les informations relatives au traitement des données personnelles, consultez notre <a href="/fr/privacy">Politique de confidentialité</a>. Pour les informations relatives aux cookies utilisés par ce site, consultez notre <a href="/fr/politique-cookies">Politique de cookies</a>.
+    </p>
+  </section>
+</main>
+  <Footer lang="fr" />
+</BaseLayout>
