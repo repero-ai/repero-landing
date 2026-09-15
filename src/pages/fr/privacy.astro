@@ -3,7 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getAlternateLocalePath } from '../../lib/locale';
-const lastUpdated = "Juin 2026";
+import {
+  COMPANY_LEGAL_NAME,
+  COMPANY_TRADE_NAME,
+  COMPANY_REGISTRATION_NUMBER,
+  COMPANY_EMAIL_PRIVACY
+} from '../../config/company';
+const lastUpdated = "Septembre 2026";
 const canonical = 'https://repero.ai/fr/privacy';
 const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/privacy' }];
 ---
@@ -15,13 +21,14 @@ const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/privacy' 
     <h1>Politique de confidentialité</h1>
     <p class="muted">Dernière mise à jour : {lastUpdated}</p>
 
-    <p>Cette Politique de confidentialité explique comment Repero AI collecte, utilise, stocke et protège les données personnelles lorsque vous utilisez notre site web, notre application et nos services associés.</p>
-    <p>Repero AI est conçu pour aider les utilisateurs à conserver, organiser, retrouver et réutiliser des informations, documents, contenus générés par IA et travaux associés. Comme le service peut traiter des contenus téléversés par les utilisateurs et des résultats assistés par IA, la confidentialité et la protection des données sont des éléments importants du produit.</p>
+    <p>Cette Politique de confidentialité explique comment {COMPANY_TRADE_NAME} collecte, utilise, stocke et protège les données personnelles lorsque vous utilisez notre site web, notre application et nos services associés.</p>
+    <p>{COMPANY_TRADE_NAME} est conçu pour aider les utilisateurs à conserver, organiser, retrouver et réutiliser des informations, documents, contenus générés par IA et travaux associés. Comme le service peut traiter des contenus téléversés par les utilisateurs et des résultats assistés par IA, la confidentialité et la protection des données sont des éléments importants du produit.</p>
 
     <h2>1. Responsable du traitement</h2>
-    <p>Repero AI est exploité par Data SaaS Lab, situé en Belgique.</p>
-    <p>Contact : <a href="mailto:privacy@repero.ai">privacy@repero.ai</a></p>
-    <p>Numéro d’entreprise : Coming Soon</p>
+    <p>{COMPANY_TRADE_NAME} est exploité par <span class="legal-todo">{COMPANY_LEGAL_NAME}</span>, situé en Belgique.</p>
+    <p>Contact : <a href={`mailto:${COMPANY_EMAIL_PRIVACY}`}>{COMPANY_EMAIL_PRIVACY}</a></p>
+    <p>Numéro d’entreprise (BCE/KBO) : <span class="legal-todo">{COMPANY_REGISTRATION_NUMBER}</span></p>
+    <p>L’identification complète de l’entreprise est disponible sur notre page <a href="/fr/mentions-legales">Mentions légales</a>.</p>
 
     <h2>2. Données personnelles collectées</h2>
     <p>Selon votre utilisation de Repero AI, nous pouvons collecter et traiter les catégories de données personnelles suivantes :</p>
@@ -103,8 +110,8 @@ const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/privacy' 
     <p>Certains prestataires peuvent traiter des données en dehors de la Belgique ou de l’Espace économique européen. Lorsque cela est requis, nous nous appuyons sur des garanties appropriées, telles que des protections contractuelles ou d’autres mécanismes de transfert reconnus par la loi.</p>
 
     <h2>8. Cookies et technologies similaires</h2>
-    <p>Repero AI peut utiliser des cookies ou technologies similaires pour l’authentification, la gestion de session, la sécurité, les préférences, l’analyse et les fonctionnalités du service.</p>
-    <p>Les cookies essentiels sont nécessaires au fonctionnement du service. Les cookies optionnels, s’ils sont utilisés, peuvent nécessiter votre consentement selon la loi applicable.</p>
+    <p>Ce site vitrine ne dépose actuellement aucun cookie non essentiel. L’application app.repero.ai, en tant qu’application web authentifiée, utilise des cookies ou mécanismes similaires pour des fonctions telles que la gestion de session et la connexion. Consultez notre <a href="/fr/politique-cookies">Politique de cookies</a> pour plus de détails et le statut actuel, y compris un point ouvert visant à réaliser un audit dédié des cookies de l’application.</p>
+    <p>Tout cookie nécessitant votre consentement en vertu du droit applicable ne sera déposé qu’après avoir obtenu ce consentement.</p>
 
     <h2>9. Conservation des données</h2>
     <p>Nous conservons les données personnelles uniquement aussi longtemps que nécessaire aux finalités décrites dans cette Politique, y compris la fourniture du service, le respect des obligations légales, la résolution des litiges, la sécurité et l’application des accords.</p>
@@ -127,7 +134,7 @@ const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/privacy' 
       <li>Retirer votre consentement lorsque le traitement est fondé sur celui-ci ;</li>
       <li>Introduire une réclamation auprès d’une autorité de protection des données.</li>
     </ul>
-    <p>Pour exercer vos droits, contactez-nous à : <a href="mailto:privacy@repero.ai">privacy@repero.ai</a></p>
+    <p>Pour exercer vos droits, contactez-nous à : <a href={`mailto:${COMPANY_EMAIL_PRIVACY}`}>{COMPANY_EMAIL_PRIVACY}</a></p>
 
     <h2>12. Enfants</h2>
     <p>Repero AI n’est pas destiné aux enfants n’ayant pas l’âge requis par la loi applicable pour utiliser des services en ligne sans consentement parental. Nous ne collectons pas sciemment de données personnelles d’enfants.</p>
@@ -139,7 +146,7 @@ const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/privacy' 
     <p>Nous pouvons mettre à jour cette Politique de confidentialité de temps à autre. Si les modifications sont importantes, nous prendrons des mesures raisonnables pour en informer les utilisateurs, par exemple via le site web, par e-mail ou par un avis dans l’application.</p>
 
     <h2>15. Contact</h2>
-    <p>Pour toute question ou demande relative à la confidentialité, contactez-nous à : <a href="mailto:privacy@repero.ai">privacy@repero.ai</a></p>
+    <p>Pour toute question ou demande relative à la confidentialité, contactez-nous à : <a href={`mailto:${COMPANY_EMAIL_PRIVACY}`}>{COMPANY_EMAIL_PRIVACY}</a></p>
   </section>
 </main>
   <Footer lang="fr" />

@@ -1,17 +1,28 @@
 ---
+import { COMPANY_EMAIL_CONTACT } from '../config/company';
 interface Props { lang: 'en' | 'fr'; }
 const { lang } = Astro.props;
 const isEn = lang === 'en';
+const legalHref = isEn ? '/en/legal' : '/fr/mentions-legales';
+const cookiesHref = isEn ? '/en/cookies' : '/fr/politique-cookies';
 ---
 <footer class="page-shell mt-auto pb-10 pt-16">
   <div class="flex flex-col gap-3 border-t border-slate-800 pt-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
-    <p>{isEn ? 'European-first AI workspace. Built with data control, transparency and portability in mind.' : 'Espace de travail IA européen. Construit pour le contrôle des données, la transparence et la portabilité.'}</p>
+    <div>
+      <p>{isEn ? 'European-first AI workspace. Built with data control, transparency and portability in mind.' : 'Espace de travail IA européen. Construit pour le contrôle des données, la transparence et la portabilité.'}</p>
+      <p class="mt-1">
+        {isEn ? 'Contact: ' : 'Contact : '}
+        <a href={`mailto:${COMPANY_EMAIL_CONTACT}`} class="text-slate-400 hover:text-slate-300 transition-colors">{COMPANY_EMAIL_CONTACT}</a>
+      </p>
+    </div>
     <div class="flex flex-col items-center md:flex-row md:gap-4">
       <img src="/brand/flat-web/repero-mark-flat-inverted-transparent.svg" alt="Repero AI" class="h-8 w-8" width="32" height="32" />
       <div class="flex flex-wrap justify-center gap-2 md:gap-4">
         <a href={`/${lang}/trust/ai`} class="text-slate-400 hover:text-slate-300 transition-colors">{isEn ? 'AI transparency' : 'Transparence IA'}</a>
         <a href={`/${lang}/privacy`} class="text-slate-400 hover:text-slate-300 transition-colors">{isEn ? 'Privacy' : 'Confidentialité'}</a>
+        <a href={cookiesHref} class="text-slate-400 hover:text-slate-300 transition-colors">{isEn ? 'Cookies' : 'Cookies'}</a>
         <a href={`/${lang}/terms`} class="text-slate-400 hover:text-slate-300 transition-colors">{isEn ? 'Terms' : 'Conditions'}</a>
+        <a href={legalHref} class="text-slate-400 hover:text-slate-300 transition-colors">{isEn ? 'Legal notice' : 'Mentions légales'}</a>
       </div>
     </div>
   </div>
