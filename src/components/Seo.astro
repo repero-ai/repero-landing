@@ -23,6 +23,7 @@ interface Props {
     tags?: string[];
   };
   schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+  noindex?: boolean;
 }
 
 const OG_LOCALE_BY_LANG = {
@@ -40,7 +41,8 @@ const {
   twitterCard = 'summary_large_image',
   alternates = [],
   article,
-  schema
+  schema,
+  noindex = false
 } = Astro.props;
 
 const siteBase = SITE_URL;
@@ -77,6 +79,7 @@ const schemaList = [
 ---
 <title>{title}</title>
 <meta name="description" content={description} />
+{noindex && <meta name="robots" content="noindex" />}
 <link rel="canonical" href={canonicalUrl} />
 <link rel="icon" href={faviconUrl} sizes="any" />
 <link rel="icon" href={favicon32Url} type="image/png" sizes="32x32" />

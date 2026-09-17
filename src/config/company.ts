@@ -6,16 +6,16 @@
 // They must be replaced with verified values before the site is treated
 // as launch-ready for legal/compliance purposes (see docs/legal-compliance.md).
 
-export const COMPANY_LEGAL_NAME = 'TODO: legal company name (exact KBO/BCE registration name)';
-export const COMPANY_LEGAL_FORM = 'TODO: legal form (e.g. BV/SRL, NV/SA, etc.)';
+export const COMPANY_LEGAL_NAME = '	Simon, Cédric';
+export const COMPANY_LEGAL_FORM = 'Personne physique';
 export const COMPANY_TRADE_NAME = 'Repero AI';
-export const COMPANY_REGISTERED_ADDRESS = 'TODO: registered office address (street, postal code, city, Belgium)';
-export const COMPANY_REGISTRATION_NUMBER = 'TODO: KBO/BCE company registration number';
-export const COMPANY_VAT_NUMBER = 'TODO: VAT / BTW number';
-export const COMPANY_PHONE = 'TODO: contact phone number (optional but recommended)';
+export const COMPANY_REGISTERED_ADDRESS = 'rue Maréchal Joffre 232, 7340 Colfontaine, Belgium';
+export const COMPANY_REGISTRATION_NUMBER = '0564779233';
+export const COMPANY_VAT_NUMBER = 'BE0564779233';
+export const COMPANY_PHONE = '+32499087502';
 
 export const COMPANY_EMAIL_CONTACT = 'contact@repero.ai';
 export const COMPANY_EMAIL_PRIVACY = 'privacy@repero.ai';
 
 // Informational only — not asserted as a mandatory legal-notice disclosure.
-export const HOSTING_PROVIDER = 'Cloudflare, Inc. (Cloudflare Pages)';
+export const HOSTING_PROVIDER = 'Cloudflare, Inc. / OVH (OVHcloud)';

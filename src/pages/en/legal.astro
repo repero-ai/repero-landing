@@ -19,7 +19,7 @@ const canonical = 'https://repero.ai/en/legal';
 const alternates = [{ lang: 'fr' as const, href: 'https://repero.ai/fr/mentions-legales' }];
 ---
 
-<BaseLayout lang="en" title="Legal Notice | Repero AI" description="Company identification and legal information for Repero AI, as required under Belgian law." canonical={canonical} alternates={alternates}>
+<BaseLayout lang="en" title="Legal Notice | Repero AI" description="Company identification and legal information for Repero AI, as required under Belgian law." canonical={canonical} alternates={alternates} noindex={true}>
   <Header lang="en" alternateHref={getAlternateLocalePath('en', alternates)} />
 <main class="legal-page">
   <section class="legal-container">
