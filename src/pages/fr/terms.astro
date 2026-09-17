@@ -3,7 +3,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { getAlternateLocalePath } from '../../lib/locale';
-const lastUpdated = "Juin 2026";
+import {
+  COMPANY_LEGAL_NAME,
+  COMPANY_TRADE_NAME,
+  COMPANY_REGISTRATION_NUMBER,
+  COMPANY_EMAIL_CONTACT
+} from '../../config/company';
+const lastUpdated = "Septembre 2026";
 const canonical = 'https://repero.ai/fr/terms';
 const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/terms' }];
 ---
@@ -15,24 +21,25 @@ const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/terms' }]
     <h1>Conditions d’utilisation</h1>
     <p class="muted">Dernière mise à jour : {lastUpdated}</p>
 
-    <p>Les présentes Conditions d’utilisation régissent votre accès à Repero AI et votre utilisation de Repero AI, un service logiciel conçu pour aider les utilisateurs à conserver, organiser, retrouver et réutiliser des informations, documents, contenus générés par IA et travaux associés.</p>
-    <p>En créant un compte ou en utilisant Repero AI, vous acceptez les présentes Conditions. Si vous ne les acceptez pas, vous ne devez pas utiliser le service.</p>
+    <p>Les présentes Conditions d’utilisation régissent votre accès à {COMPANY_TRADE_NAME} et votre utilisation de {COMPANY_TRADE_NAME}, un service logiciel conçu pour aider les utilisateurs à conserver, organiser, retrouver et réutiliser des informations, documents, contenus générés par IA et travaux associés.</p>
+    <p>En créant un compte ou en utilisant {COMPANY_TRADE_NAME}, vous acceptez les présentes Conditions. Si vous ne les acceptez pas, vous ne devez pas utiliser le service. Aucune disposition des présentes Conditions ne limite ou ne supprime les droits impératifs dont vous bénéficiez en tant que consommateur au titre du droit belge ou européen.</p>
 
     <h2>1. Fournisseur du service</h2>
-    <p>Repero AI est exploité par Data SaaS Lab, situé en Belgique.</p>
-    <p>Contact : <a href="mailto:contact@repero.ai">contact@repero.ai</a></p>
-    <p>Numéro d’entreprise : Coming Soon</p>
+    <p>{COMPANY_TRADE_NAME} est exploité par <span class="legal-todo">{COMPANY_LEGAL_NAME}</span>, situé en Belgique.</p>
+    <p>Contact : <a href={`mailto:${COMPANY_EMAIL_CONTACT}`}>{COMPANY_EMAIL_CONTACT}</a></p>
+    <p>Numéro d’entreprise (BCE/KBO) : <span class="legal-todo">{COMPANY_REGISTRATION_NUMBER}</span></p>
+    <p>L’identification complète de l’entreprise est disponible sur notre page <a href="/fr/mentions-legales">Mentions légales</a>.</p>
 
     <h2>2. Description du service</h2>
-    <p>Repero AI permet aux utilisateurs de stocker, indexer, rechercher et retrouver des contenus tels que des documents, notes, conversations IA, artefacts générés, extraits de code, listes, rapports et autres contenus fournis par l’utilisateur ou assistés par IA.</p>
-    <p>Le service peut inclure des fonctionnalités fondées sur l’intelligence artificielle, notamment la synthèse, la recherche sémantique, l’extraction de contenu, la génération de contenu, la classification et les réponses assistées par récupération d’informations.</p>
+    <p>{COMPANY_TRADE_NAME} permet aux utilisateurs de stocker, indexer, rechercher et retrouver des contenus tels que des documents, notes, conversations IA, artefacts générés, extraits de code, listes, rapports et autres contenus fournis par l’utilisateur ou assistés par IA.</p>
+    <p>Le service peut inclure des fonctionnalités fondées sur l’intelligence artificielle, notamment la synthèse, la recherche sémantique, l’extraction de contenu, la génération de contenu, la classification et les réponses assistées par récupération d’informations. Ces fonctionnalités peuvent être fournies au moyen d’un ou plusieurs prestataires d’IA tiers sélectionnés et exploités par nos soins ; {COMPANY_TRADE_NAME} n’est pas elle-même le modèle d’IA sous-jacent.</p>
 
     <h2>3. Création de compte</h2>
-    <p>Un compte peut être nécessaire pour utiliser Repero AI. Vous êtes responsable de la sécurité de vos identifiants et de toute activité effectuée via votre compte.</p>
-    <p>Repero AI peut prendre en charge l’authentification par e-mail, Google, Microsoft ou d’autres fournisseurs d’identité. Votre utilisation de ces fournisseurs est également soumise à leurs propres conditions et politiques.</p>
+    <p>Un compte peut être nécessaire pour utiliser {COMPANY_TRADE_NAME}. Vous êtes responsable de la sécurité de vos identifiants et de toute activité effectuée via votre compte.</p>
+    <p>{COMPANY_TRADE_NAME} peut prendre en charge l’authentification par e-mail, Google, Microsoft ou d’autres fournisseurs d’identité. Votre utilisation de ces fournisseurs est également soumise à leurs propres conditions et politiques.</p>
 
     <h2>4. Utilisation acceptable</h2>
-    <p>Vous vous engagez à ne pas utiliser Repero AI pour :</p>
+    <p>Vous vous engagez à ne pas utiliser {COMPANY_TRADE_NAME} pour :</p>
     <ul>
       <li>Violer des lois ou réglementations applicables ;</li>
       <li>Téléverser ou traiter du contenu que vous n’avez pas le droit d’utiliser ;</li>
@@ -43,55 +50,90 @@ const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/terms' }]
     </ul>
 
     <h2>5. Contenu utilisateur</h2>
-    <p>Vous conservez la propriété des contenus que vous téléversez, créez ou stockez dans Repero AI.</p>
-    <p>En utilisant le service, vous accordez à Repero AI les droits limités nécessaires pour héberger, traiter, indexer, analyser, afficher et retrouver vos contenus afin de vous fournir le service.</p>
-    <p>Vous êtes responsable de la légalité, de l’exactitude et des droits associés aux contenus que vous téléversez ou traitez via Repero AI.</p>
+    <p>Vous conservez la propriété des contenus que vous téléversez, créez ou stockez dans {COMPANY_TRADE_NAME}.</p>
+    <p>En utilisant le service, vous accordez à {COMPANY_TRADE_NAME} les droits limités nécessaires pour héberger, traiter, indexer, analyser, afficher et retrouver vos contenus afin de vous fournir le service.</p>
+    <p>Vous êtes responsable de la légalité, de l’exactitude et des droits associés aux contenus que vous téléversez ou traitez via {COMPANY_TRADE_NAME}.</p>
 
     <h2>6. Contenu généré par IA</h2>
-    <p>Repero AI peut générer, résumer, transformer ou retrouver du contenu au moyen de systèmes d’intelligence artificielle. Les résultats générés par IA peuvent être incomplets, inexacts, obsolètes ou inadaptés à votre objectif spécifique.</p>
+    <p>{COMPANY_TRADE_NAME} peut générer, résumer, transformer ou retrouver du contenu au moyen de systèmes d’intelligence artificielle, y compris des systèmes fournis par des prestataires d’IA tiers. Les résultats générés par IA peuvent être incomplets, inexacts, obsolètes ou inadaptés à votre objectif spécifique.</p>
     <p>Vous êtes responsable de la vérification et de la validation des résultats générés par IA avant de vous y fier, en particulier pour les décisions juridiques, financières, médicales, critiques pour la sécurité, professionnelles ou critiques pour l’activité.</p>
-    <p>Repero AI ne fournit pas de conseil juridique, financier, médical ou professionnel.</p>
+    <p>{COMPANY_TRADE_NAME} ne fournit pas de conseil juridique, financier, médical ou professionnel.</p>
 
     <h2>7. Statut bêta et MVP</h2>
-    <p>Repero AI peut être proposé en version bêta, MVP, préversion ou service en phase initiale. Les fonctionnalités peuvent être modifiées, ajoutées, supprimées, limitées, interrompues ou adaptées à tout moment.</p>
-    <p>Nous visons à fournir un service fiable, mais nous ne garantissons pas une disponibilité ininterrompue, un fonctionnement sans erreur ni la disponibilité permanente de toutes les fonctionnalités à ce stade.</p>
+    <p>{COMPANY_TRADE_NAME} peut être proposé en version bêta, MVP, préversion ou service en phase initiale. Les fonctionnalités peuvent être modifiées, ajoutées, supprimées, limitées, interrompues ou adaptées à tout moment.</p>
+    <p>Nous visons à fournir un service fiable, mais nous ne garantissons pas une disponibilité ininterrompue, un fonctionnement sans erreur ni la disponibilité permanente de toutes les fonctionnalités à ce stade. Ce paragraphe décrit le stade opérationnel du service et ne réduit aucun droit impératif dont vous bénéficiez en tant que consommateur, y compris le droit de rétractation décrit à la Section 9.</p>
 
     <h2>8. Offres, abonnements et paiements</h2>
-    <p>Repero AI peut proposer des offres gratuites et payantes. Les offres payantes, tarifs, limites et fonctionnalités incluses peuvent être affichés sur le site web ou dans l’application.</p>
-    <p>Si des abonnements payants sont introduits ou utilisés, les conditions de facturation, de renouvellement, d’annulation et les taxes applicables seront présentées avant l’achat.</p>
-    <p>Sauf indication contraire, les frais ne sont pas remboursables, sauf lorsque la loi applicable l’exige.</p>
+    <p>{COMPANY_TRADE_NAME} peut proposer des offres gratuites et payantes, sous forme d’abonnement. Avant de finaliser un achat, nous présenterons le prix total (taxes comprises), le caractère récurrent et la périodicité de facturation de l’abonnement, sa durée, les conditions de renouvellement et la procédure de résiliation, dans le cadre du processus de commande au moment de l’achat.</p>
+    <p>Lorsqu’un abonnement se renouvelle automatiquement, les modalités de renouvellement, la procédure de résiliation et la date de prise d’effet de la résiliation vous sont communiquées au moment de l’achat, telles que présentées lors de la commande.</p>
+    <p>La facturation et le traitement des paiements pour {COMPANY_TRADE_NAME} sont gérés séparément de ce site web, généralement au sein de l’application ou par l’intermédiaire d’un prestataire de paiement tiers. Sauf indication contraire lors de la commande, les frais déjà dus pour une période ne sont pas remboursables, sauf lorsque la loi applicable l’exige ou conformément à la Section 9 (Droit de rétractation).</p>
 
-    <h2>9. Limites du service et usage raisonnable</h2>
-    <p>Repero AI peut appliquer des limites au stockage, aux téléversements de documents, à l’indexation, à l’usage de l’IA, à la récupération d’informations, aux appels API ou à d’autres fonctionnalités selon l’offre choisie.</p>
+    <h2>9. Droit de rétractation (consommateurs)</h2>
+    <p>Cette section s’applique uniquement si vous êtes un consommateur, c’est-à-dire si vous contractez avec nous à des fins étrangères à votre activité commerciale, industrielle, artisanale ou libérale, au sens du Livre VI du Code de droit économique belge. Si vous contractez en tant qu’entreprise, professionnel ou organisation, cette Section 9 ne vous est pas applicable ; voir la Section 9.6.</p>
+
+    <h3>9.1 Votre droit de rétractation</h3>
+    <p>En tant que consommateur, vous disposez du droit de vous rétracter d’un contrat conclu avec nous dans un délai de 14 jours calendaires, sans avoir à justifier de motifs et sans autre coût que celui décrit ci-dessous. Le délai de rétractation court à compter du jour de la conclusion du contrat (par exemple, le jour où vous souscrivez à une offre payante).</p>
+
+    <h3>9.2 Comment exercer votre droit de rétractation</h3>
+    <p>Pour exercer votre droit de rétractation, vous devez nous informer de votre décision au moyen d’une déclaration dénuée d’ambiguïté (par exemple, une lettre envoyée par la poste ou un e-mail) avant l’expiration du délai de rétractation. Vous pouvez, sans y être obligé, utiliser le formulaire type de rétractation figurant à la Section 9.7. Si vous utilisez cette faculté, nous vous communiquerons sans délai un accusé de réception.</p>
+
+    <h3>9.3 Demander le commencement du service avant la fin du délai de rétractation</h3>
+    <p>Si vous souhaitez que le service commence avant la fin du délai de rétractation de 14 jours, vous devez en faire la demande expresse — par exemple en cochant une case dédiée ou par une demande explicite équivalente lors de la commande, distincte de la simple validation de votre achat. Avant cela, nous vous informerons que cette demande a une incidence sur votre droit de rétractation, telle que décrite ci-dessous. Le mécanisme exact est présenté lors de la commande.</p>
+
+    <h3>9.4 Effet de la rétractation en cas d’exécution partielle du service</h3>
+    <p>Si, à votre demande expresse formulée conformément à la Section 9.3, nous avons commencé à exécuter le service avant la fin du délai de rétractation, et que vous vous rétractez avant l’exécution complète du service, vous nous devrez un montant proportionnel à ce qui a été fourni jusqu’au moment où vous nous avez informés de votre rétractation, par rapport à l’ensemble des prestations prévues par le contrat. Ce montant est calculé sur la base du prix total convenu, et nous vous rembourserons tout autre paiement reçu, sans retard injustifié et en tout état de cause dans un délai de 14 jours à compter de la réception de votre décision de rétractation.</p>
+
+    <h3>9.5 Perte du droit de rétractation en cas d’exécution complète</h3>
+    <p>Votre droit de rétractation n’est perdu que si les conditions suivantes sont toutes réunies : (a) vous avez expressément demandé que l’exécution commence avant la fin du délai de rétractation, (b) le service a été intégralement exécuté, et (c) avant le début de l’exécution, vous avez reconnu que vous perdriez votre droit de rétractation une fois le service intégralement exécuté. Le simple accès à votre compte, ou le simple commencement de l’exécution, ne suffit pas en soi à vous faire perdre ce droit — l’exécution complète accompagnée de la reconnaissance décrite ici est requise.</p>
+
+    <h3>9.6 Clients professionnels et entreprises</h3>
+    <p>Si vous contractez pour le compte d’une entreprise, agissez à titre professionnel, ou n’êtes pas un consommateur au sens décrit à la Section 9.1, le droit légal de rétractation du consommateur décrit à la présente Section 9 ne s’applique pas à votre contrat. La résiliation d’un abonnement pour ces clients est régie par la Section 8 et par les conditions présentées lors de la commande.</p>
+
+    <h3>9.7 Formulaire type de rétractation</h3>
+    <p>(Veuillez compléter et renvoyer le présent formulaire uniquement si vous souhaitez vous rétracter du contrat, et uniquement si vous êtes un consommateur au sens de la Section 9.1.)</p>
+    <p>À l’attention de : {COMPANY_TRADE_NAME}, <span class="legal-todo">{COMPANY_LEGAL_NAME}</span>, <a href={`mailto:${COMPANY_EMAIL_CONTACT}`}>{COMPANY_EMAIL_CONTACT}</a></p>
+    <ul>
+      <li>Je/nous (*) vous notifie/notifions par la présente ma/notre (*) rétractation du contrat portant sur la fourniture du service suivant :</li>
+      <li>Commandé le (*) :</li>
+      <li>Nom du (des) consommateur(s) :</li>
+      <li>Adresse du (des) consommateur(s) :</li>
+      <li>Signature du (des) consommateur(s) (uniquement en cas de notification du présent formulaire sur papier) :</li>
+      <li>Date :</li>
+    </ul>
+    <p>(*) Rayer la mention inutile.</p>
+
+    <h2>10. Limites du service et usage raisonnable</h2>
+    <p>{COMPANY_TRADE_NAME} peut appliquer des limites au stockage, aux téléversements de documents, à l’indexation, à l’usage de l’IA, à la récupération d’informations, aux appels API ou à d’autres fonctionnalités selon l’offre choisie.</p>
     <p>Nous pouvons restreindre ou suspendre temporairement un usage qui dégrade le service, crée un risque de sécurité, entraîne des coûts excessifs ou viole les présentes Conditions.</p>
 
-    <h2>10. Services tiers</h2>
-    <p>Repero AI peut s’appuyer sur des prestataires tiers pour l’hébergement, l’authentification, l’analyse, le traitement des paiements, l’envoi d’e-mails, le traitement IA, l’infrastructure, l’observabilité ou d’autres services techniques.</p>
+    <h2>11. Services tiers</h2>
+    <p>{COMPANY_TRADE_NAME} peut s’appuyer sur des prestataires tiers pour l’hébergement, l’authentification, l’analyse, le traitement des paiements, l’envoi d’e-mails, le traitement IA, l’infrastructure, l’observabilité ou d’autres services techniques.</p>
     <p>Nous ne sommes pas responsables des services tiers échappant à notre contrôle, mais nous nous efforçons de choisir des prestataires adaptés à l’exploitation et à la sécurité du service.</p>
 
-    <h2>11. Propriété intellectuelle</h2>
-    <p>Repero AI, y compris son logiciel, son design, sa marque, son nom, son interface et ses éléments associés, appartient à Data SaaS Lab ou est utilisé sous licence.</p>
-    <p>Les présentes Conditions ne vous accordent aucun droit de propriété sur Repero AI ou sur les droits de propriété intellectuelle associés.</p>
+    <h2>12. Propriété intellectuelle</h2>
+    <p>{COMPANY_TRADE_NAME}, y compris son logiciel, son design, sa marque, son nom, son interface et ses éléments associés, appartient à <span class="legal-todo">{COMPANY_LEGAL_NAME}</span> ou est utilisé sous licence.</p>
+    <p>Les présentes Conditions ne vous accordent aucun droit de propriété sur {COMPANY_TRADE_NAME} ou sur les droits de propriété intellectuelle associés.</p>
 
-    <h2>12. Résiliation</h2>
-    <p>Vous pouvez cesser d’utiliser Repero AI à tout moment. Nous pouvons suspendre ou résilier l’accès si vous violez les présentes Conditions, créez des risques de sécurité ou juridiques, ou faites un usage abusif du service.</p>
+    <h2>13. Résiliation</h2>
+    <p>Vous pouvez cesser d’utiliser {COMPANY_TRADE_NAME} à tout moment. Nous pouvons suspendre ou résilier l’accès si vous violez les présentes Conditions, créez des risques de sécurité ou juridiques, ou faites un usage abusif du service.</p>
     <p>Lorsque cela est raisonnablement possible, nous fournirons un préavis avant suspension ou résiliation, sauf si une action immédiate est nécessaire pour des raisons de sécurité, juridiques ou opérationnelles.</p>
 
-    <h2>13. Exclusion de garanties</h2>
-    <p>Repero AI est fourni « en l’état » et « selon disponibilité ». Dans la mesure maximale permise par la loi, nous ne donnons aucune garantie concernant la disponibilité, l’exactitude, la fiabilité, l’adéquation ou l’aptitude à un usage particulier.</p>
+    <h2>14. Exclusion de garanties</h2>
+    <p>{COMPANY_TRADE_NAME} est fourni « en l’état » et « selon disponibilité ». Dans la mesure maximale permise par la loi, nous ne donnons aucune garantie concernant la disponibilité, l’exactitude, la fiabilité, l’adéquation ou l’aptitude à un usage particulier. Cette exclusion n’exclut ni ne limite aucun droit impératif dont vous bénéficiez en tant que consommateur, y compris le droit de rétractation décrit à la Section 9.</p>
 
-    <h2>14. Limitation de responsabilité</h2>
-    <p>Dans la mesure maximale permise par la loi applicable, Repero AI et Data SaaS Lab ne sauraient être responsables des pertes indirectes, accessoires, consécutives, spéciales, punitives ou commerciales, y compris les pertes de données, profits, revenus, clientèle ou opportunités commerciales.</p>
+    <h2>15. Limitation de responsabilité</h2>
+    <p>Dans la mesure maximale permise par la loi applicable, {COMPANY_TRADE_NAME} et <span class="legal-todo">{COMPANY_LEGAL_NAME}</span> ne sauraient être responsables des pertes indirectes, accessoires, consécutives, spéciales, punitives ou commerciales, y compris les pertes de données, profits, revenus, clientèle ou opportunités commerciales.</p>
     <p>Rien dans les présentes Conditions ne limite une responsabilité lorsque cette limitation est interdite par la loi.</p>
 
-    <h2>15. Modifications des Conditions</h2>
+    <h2>16. Modifications des Conditions</h2>
     <p>Nous pouvons mettre à jour ces Conditions de temps à autre. Si les modifications sont importantes, nous prendrons des mesures raisonnables pour en informer les utilisateurs, par exemple via le site web, par e-mail ou par un avis dans l’application.</p>
 
-    <h2>16. Droit applicable</h2>
+    <h2>17. Droit applicable et règlement des litiges</h2>
     <p>Les présentes Conditions sont régies par le droit belge, sauf si des règles impératives de protection des consommateurs prévoient autrement.</p>
+    <p>Si vous êtes un consommateur et qu’une réclamation n’a pas pu être résolue directement avec nous, vous pouvez également contacter le Service de médiation pour le consommateur (Consumentenombudsdienst) en tant que mécanisme de règlement extrajudiciaire disponible. Le recours à ce service est facultatif et n’affecte pas votre droit de saisir les juridictions compétentes.</p>
 
-    <h2>17. Contact</h2>
-    <p>Pour toute question concernant ces Conditions, contactez-nous à : <a href="mailto:contact@repero.ai">contact@repero.ai</a></p>
+    <h2>18. Contact</h2>
+    <p>Pour toute question concernant ces Conditions, contactez-nous à : <a href={`mailto:${COMPANY_EMAIL_CONTACT}`}>{COMPANY_EMAIL_CONTACT}</a></p>
   </section>
 </main>
   <Footer lang="fr" />

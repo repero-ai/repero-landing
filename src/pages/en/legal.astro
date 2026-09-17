@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getAlternateLocalePath } from '../../lib/locale';
+import {
+  COMPANY_LEGAL_NAME,
+  COMPANY_LEGAL_FORM,
+  COMPANY_TRADE_NAME,
+  COMPANY_REGISTERED_ADDRESS,
+  COMPANY_REGISTRATION_NUMBER,
+  COMPANY_VAT_NUMBER,
+  COMPANY_PHONE,
+  COMPANY_EMAIL_CONTACT,
+  HOSTING_PROVIDER
+} from '../../config/company';
+const lastUpdated = "September 2026";
+const canonical = 'https://repero.ai/en/legal';
+const alternates = [{ lang: 'fr' as const, href: 'https://repero.ai/fr/mentions-legales' }];
+---
+
+<BaseLayout lang="en" title="Legal Notice | Repero AI" description="Company identification and legal information for Repero AI, as required under Belgian law." canonical={canonical} alternates={alternates} noindex={true}>
+  <Header lang="en" alternateHref={getAlternateLocalePath('en', alternates)} />
+<main class="legal-page">
+  <section class="legal-container">
+    <h1>Legal Notice</h1>
+    <p class="muted">Last updated: {lastUpdated}</p>
+
+    <p>
+      This page identifies the company operating {COMPANY_TRADE_NAME} and provides the contact and registration information that must be permanently and easily accessible to customers, in accordance with the Belgian Code of Economic Law.
+    </p>
+
+    <h2>1. Company identification</h2>
+    <ul>
+      <li>Trade name: {COMPANY_TRADE_NAME}</li>
+      <li>Legal name: <span class="legal-todo">{COMPANY_LEGAL_NAME}</span></li>
+      <li>Legal form: <span class="legal-todo">{COMPANY_LEGAL_FORM}</span></li>
+      <li>Registered office address: <span class="legal-todo">{COMPANY_REGISTERED_ADDRESS}</span></li>
+      <li>Company registration number (KBO/BCE): <span class="legal-todo">{COMPANY_REGISTRATION_NUMBER}</span></li>
+      <li>VAT number: <span class="legal-todo">{COMPANY_VAT_NUMBER}</span></li>
+    </ul>
+
+    <h2>2. Contact</h2>
+    <ul>
+      <li>Email: <a href={`mailto:${COMPANY_EMAIL_CONTACT}`}>{COMPANY_EMAIL_CONTACT}</a></li>
+      <li>Phone: <span class="legal-todo">{COMPANY_PHONE}</span></li>
+    </ul>
+
+    <h2>3. Website hosting</h2>
+    <p>
+      This website is hosted by {HOSTING_PROVIDER}. This information is provided for transparency and does not affect the identity or liability of the operator of {COMPANY_TRADE_NAME} described above.
+    </p>
+
+    <h2>4. Related documents</h2>
+    <p>
+      For the terms governing use of {COMPANY_TRADE_NAME}, see our <a href="/en/terms">Terms of Service</a>. For information on personal data processing, see our <a href="/en/privacy">Privacy Policy</a>. For information on cookies used by this website, see our <a href="/en/cookies">Cookie Policy</a>.
+    </p>
+  </section>
+</main>
+  <Footer lang="en" />
+</BaseLayout>

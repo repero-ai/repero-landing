@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getAlternateLocalePath } from '../../lib/locale';
+import { COMPANY_EMAIL_PRIVACY, COMPANY_TRADE_NAME } from '../../config/company';
+const lastUpdated = "Septembre 2026";
+const canonical = 'https://repero.ai/fr/politique-cookies';
+const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/cookies' }];
+---
+
+<BaseLayout lang="fr" title="Politique de cookies | Repero AI" description="Découvrez quels cookies ce site utilise et comment les contrôler." canonical={canonical} alternates={alternates}>
+  <Header lang="fr" alternateHref={getAlternateLocalePath('fr', alternates)} />
+<main class="legal-page">
+  <section class="legal-container">
+    <h1>Politique de cookies</h1>
+    <p class="muted">Dernière mise à jour : {lastUpdated}</p>
+
+    <p>
+      Cette Politique de cookies explique comment le site vitrine <strong>repero.ai</strong> (ce site) utilise des cookies et technologies similaires. Elle ne couvre pas l'application {COMPANY_TRADE_NAME} disponible sur <strong>app.repero.ai</strong>, qui est un service distinct exploité par le même prestataire et fait l'objet de ses propres informations relatives aux cookies au sein de l'application.
+    </p>
+
+    <h2>1. Ce que fait ce site aujourd'hui</h2>
+    <p>
+      Ce site vitrine est un site statique. À la date de la dernière mise à jour ci-dessus, il ne dépose aucun cookie non essentiel et n'utilise ni analyse d'audience, ni publicité, ni cookie de suivi. Il ne repose actuellement sur aucun cookie pour fonctionner.
+    </p>
+    <p>
+      Si cela devait évoluer — par exemple si des cookies d'analyse ou de préférence étaient ajoutés — cette politique serait mise à jour au préalable, et tout cookie nécessitant un consentement en vertu du droit applicable ne serait déposé qu'après avoir obtenu ce consentement.
+    </p>
+
+    <h2>2. Données techniques traitées par notre infrastructure d'hébergement</h2>
+    <p>
+      Notre infrastructure d'hébergement et de diffusion de contenu peut traiter des données techniques limitées (comme l'adresse IP et les métadonnées de requête) pour servir les pages et se protéger contre les abus, et peut déposer des cookies strictement nécessaires à des fins de sécurité. Il s'agit d'un traitement au niveau de l'infrastructure, décrit plus en détail dans notre <a href="/fr/privacy">Politique de confidentialité</a>, et qui n'inclut aucun cookie d'analyse ou publicitaire.
+    </p>
+
+    <h2>3. L'application (app.repero.ai)</h2>
+    <p>
+      Cette Politique de cookies couvre uniquement le site vitrine repero.ai. L'application {COMPANY_TRADE_NAME} est une application web distincte et authentifiée, exploitée par le même prestataire, qui utilise nécessairement des cookies ou mécanismes similaires pour des fonctions telles que la gestion de session et la connexion. Son utilisation des cookies est présentée au sein de l'application elle-même, et non sur cette page.
+    </p>
+
+    <h2>4. Gérer les cookies dans votre navigateur</h2>
+    <p>
+      La plupart des navigateurs permettent de consulter, supprimer et bloquer les cookies via leurs paramètres. Bloquer les cookies essentiels dans l'application peut empêcher certaines fonctionnalités du service de fonctionner correctement.
+    </p>
+
+    <h2>5. Contact</h2>
+    <p>
+      Pour toute question relative à cette Politique de cookies, contactez-nous à <a href={`mailto:${COMPANY_EMAIL_PRIVACY}`}>{COMPANY_EMAIL_PRIVACY}</a>.
+    </p>
+  </section>
+</main>
+  <Footer lang="fr" />
+</BaseLayout>
