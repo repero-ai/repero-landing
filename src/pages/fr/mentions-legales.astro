@@ -33,17 +33,17 @@ const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/legal' }]
     <h2>1. Identification de l'entreprise</h2>
     <ul>
       <li>Nom commercial : {COMPANY_TRADE_NAME}</li>
-      <li>Dénomination légale : <span class="legal-todo">{COMPANY_LEGAL_NAME}</span></li>
-      <li>Forme juridique : <span class="legal-todo">{COMPANY_LEGAL_FORM}</span></li>
-      <li>Siège social : <span class="legal-todo">{COMPANY_REGISTERED_ADDRESS}</span></li>
-      <li>Numéro d'entreprise (BCE/KBO) : <span class="legal-todo">{COMPANY_REGISTRATION_NUMBER}</span></li>
-      <li>Numéro de TVA : <span class="legal-todo">{COMPANY_VAT_NUMBER}</span></li>
+      <li>Dénomination légale : {COMPANY_LEGAL_NAME}</li>
+      <li>Forme juridique : {COMPANY_LEGAL_FORM}</li>
+      <li>Siège social : {COMPANY_REGISTERED_ADDRESS}</li>
+      <li>Numéro d'entreprise (BCE/KBO) : {COMPANY_REGISTRATION_NUMBER}</li>
+      <li>Numéro de TVA : {COMPANY_VAT_NUMBER}</li>
     </ul>
 
     <h2>2. Contact</h2>
     <ul>
       <li>E-mail : <a href={`mailto:${COMPANY_EMAIL_CONTACT}`}>{COMPANY_EMAIL_CONTACT}</a></li>
-      <li>Téléphone : <span class="legal-todo">{COMPANY_PHONE}</span></li>
+      <li>Téléphone : {COMPANY_PHONE}</li>
     </ul>
 
     <h2>3. Hébergement du site</h2>
