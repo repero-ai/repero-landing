@@ -17,7 +17,7 @@
     "check": "npm run build && npm run test:blog-build && npm run test:fr-product-pages && npm run test:seo-intent-pages && npm run test:seo-baseline && npm run test:language-switch && npm run verify:no-redirects"
   },
   "dependencies": {
-    "astro": "^5.8.0",
+    "astro": "^7.3.2",
     "sharp": "^0.34.5"
   },
   "devDependencies": {
