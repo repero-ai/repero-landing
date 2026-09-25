@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import sharp from 'sharp';
 
@@ -20,6 +20,13 @@ function reject(value, needle, label) {
 }
 
 const representativeRoutes = ['en.html', 'fr.html', 'en/privacy.html', 'fr/terms.html', 'en/blog/what-happens-to-your-data-repero-ai.html'];
+
+const astroDir = join(dist, '_astro');
+const generatedCss = readdirSync(astroDir)
+  .filter((file) => file.endsWith('.css'))
+  .map((file) => readFileSync(join(astroDir, file), 'utf8'))
+  .join('\n');
+reject(generatedCss, 'fonts.googleapis.com', 'generated CSS external Google Fonts dependency');
 const browserIconHrefs = [
   ['/favicon.ico', 'ICO fallback'],
   ['/brand/flat-web/favicon-32x32.png', '32px favicon'],
