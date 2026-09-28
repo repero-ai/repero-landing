@@ -22,11 +22,11 @@ export function buildBlogIndexPath(lang: BlogEntry['data']['lang']) {
   return `/${lang}/blog`;
 }
 
-export function buildBlogPostPath(entry: Pick<BlogEntry, 'slug' | 'data'>) {
-  return `${buildBlogIndexPath(entry.data.lang)}/${entry.data.publicSlug ?? entry.slug}`;
+export function buildBlogPostPath(entry: Pick<BlogEntry, 'id' | 'data'>) {
+  return `${buildBlogIndexPath(entry.data.lang)}/${entry.data.publicSlug ?? entry.id}`;
 }
 
-export function getBlogCanonicalUrl(entry: Pick<BlogEntry, 'slug' | 'data'>, baseUrl: string = SITE_URL) {
+export function getBlogCanonicalUrl(entry: Pick<BlogEntry, 'id' | 'data'>, baseUrl: string = SITE_URL) {
   return absoluteUrl(buildBlogPostPath(entry), baseUrl);
 }
 
@@ -43,7 +43,7 @@ export function getRelatedPosts(entry: BlogEntry, allPosts: BlogEntry[], limit =
   const currentTags = new Set(entry.data.tags.map((tag) => tag.toLowerCase()));
 
   return allPosts
-    .filter((candidate) => candidate.slug !== entry.slug)
+    .filter((candidate) => candidate.id !== entry.id)
     .map((candidate) => {
       const sharedTags = candidate.data.tags.filter((tag) => currentTags.has(tag.toLowerCase())).length;
       const sameCategory = candidate.data.category.toLowerCase() === entry.data.category.toLowerCase() ? 1 : 0;

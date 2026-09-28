@@ -62,7 +62,7 @@ export async function GET() {
       alternates: post.data.translationOf ? [{ lang: 'fr' as const, path: `/fr/blog/${post.data.translationOf}` }] : undefined
     })),
     ...publishedFrenchPosts.map((post) => {
-      const englishPost = englishByFrenchSlug.get(post.slug);
+      const englishPost = englishByFrenchSlug.get(post.id);
       return {
         path: buildBlogPostPath(post),
         alternates: englishPost ? [{ lang: 'en' as const, path: buildBlogPostPath(englishPost) }] : undefined

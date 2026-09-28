@@ -1,5 +1,5 @@
 ---
-import { type CollectionEntry } from 'astro:content';
+import { render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
@@ -11,7 +11,7 @@ export async function getStaticPaths() {
   const posts = await getPublishedBlogPosts();
 
   return posts.filter((post) => post.data.lang === 'fr').map((post) => ({
-    params: { slug: post.slug },
+    params: { slug: post.id },
     props: { post, posts }
   }));
 }
@@ -22,11 +22,11 @@ interface Props {
 }
 
 const { post, posts } = Astro.props;
-const { Content } = await post.render();
+const { Content } = await render(post);
 const site = SITE_URL;
 const canonicalPath = buildBlogPostPath(post);
 const canonical = new URL(canonicalPath, site).href;
-const englishPost = posts.find((candidate) => candidate.data.lang === 'en' && candidate.data.translationOf === post.slug);
+const englishPost = posts.find((candidate) => candidate.data.lang === 'en' && candidate.data.translationOf === post.id);
 const alternates = englishPost ? [{ lang: 'en' as const, href: new URL(buildBlogPostPath(englishPost), site).href }] : [];
 const postImage = absoluteUrl(post.data.image ?? DEFAULT_OG_IMAGE);
 const relatedPosts = getRelatedPosts(post, posts.filter((candidate) => candidate.data.lang === 'fr'));
