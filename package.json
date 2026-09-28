@@ -14,13 +14,16 @@
     "test:seo-baseline": "node scripts/test-seo-baseline.mjs",
     "test:language-switch": "node scripts/test-language-switch.mjs",
     "verify:no-redirects": "node scripts/verify-no-redirects.mjs",
-    "check": "npm run build && npm run test:blog-build && npm run test:fr-product-pages && npm run test:seo-intent-pages && npm run test:seo-baseline && npm run test:language-switch && npm run verify:no-redirects"
+    "typecheck": "astro check",
+    "check": "npm run typecheck && npm run build && npm run test:blog-build && npm run test:fr-product-pages && npm run test:seo-intent-pages && npm run test:seo-baseline && npm run test:language-switch && npm run verify:no-redirects"
   },
   "dependencies": {
     "astro": "^7.3.2",
     "sharp": "^0.35.4"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
+    "@cloudflare/workers-types": "^5.20260928.1",
     "@tailwindcss/vite": "^4.3.3",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.8.3"

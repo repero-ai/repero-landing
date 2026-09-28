@@ -2,7 +2,7 @@
 import UseCasePage from '../../../components/UseCasePage.astro';
 const site = 'https://repero.ai';
 const canonical = new URL('/fr/cas-usages/quotidien', site).href;
-const alternates = [{ lang: 'en', href: new URL('/en/use-cases/everyday', site).href }];
+const alternates = [{ lang: 'en' as const, href: new URL('/en/use-cases/everyday', site).href }];
 ---
 <UseCasePage
   lang="fr"
@@ -13,8 +13,6 @@ const alternates = [{ lang: 'en', href: new URL('/en/use-cases/everyday', site).
   items={["city trip", "comparaison d’achats importants", "projets familiaux", "dossiers administratifs et documents personnels", "planification de rénovation"]}
   exampleTitle="Exemple concret"
   exampleIntro="Un city trip devient plus simple quand la conversation, les recherches et les décisions restent dans le même projet."
-  ogType="website"
-  twitterCard="summary_large_image"
   alternates={alternates}
   exampleSteps={[
     "Je démarre une conversation pour préparer un city trip à Madrid.",

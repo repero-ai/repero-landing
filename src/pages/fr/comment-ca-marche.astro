@@ -8,7 +8,7 @@ import { frProductScreens } from '../../data/frProductScreens';
 
 const site = 'https://repero.ai';
 const canonical = new URL('/fr/comment-ca-marche', site).href;
-const alternates = [{ lang: 'en', href: new URL('/en/how-it-works', site).href }];
+const alternates = [{ lang: 'en' as const, href: new URL('/en/how-it-works', site).href }];
 
 const projectScreen = frProductScreens.find((screen) => screen.id === 'projects-conversations');
 const contextScreen = frProductScreens.find((screen) => screen.id === 'active-context');

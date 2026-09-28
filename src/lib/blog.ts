@@ -13,8 +13,8 @@ export function formatBlogDate(date: Date, locale = 'fr-FR') {
   }).format(date);
 }
 
-export function getReadingTimeMinutes(text: string) {
-  const words = text.trim().split(/\s+/).filter(Boolean).length;
+export function getReadingTimeMinutes(text: string | undefined) {
+  const words = (text ?? '').trim().split(/\s+/).filter(Boolean).length;
   return Math.max(1, Math.round(words / WORDS_PER_MINUTE));
 }
 

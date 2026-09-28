@@ -8,7 +8,7 @@ import { frProductScreens } from '../../data/frProductScreens';
 
 const site = 'https://repero.ai';
 const canonical = new URL('/en/how-it-works', site).href;
-const alternates = [{ lang: 'fr', href: new URL('/fr/comment-ca-marche', site).href }];
+const alternates = [{ lang: 'fr' as const, href: new URL('/fr/comment-ca-marche', site).href }];
 const screens = Object.fromEntries(frProductScreens.map((screen) => [screen.id, screen]));
 const steps = [
   { id: 'projects-conversations', heading: 'Bring each project and conversation together', body: ['Projects give your conversations, documents, and useful outputs a stable home.', 'You can return to the work later without rebuilding its context.'] },

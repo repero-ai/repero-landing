@@ -5,7 +5,7 @@ import Footer from '../../../components/Footer.astro';
 import { getAlternateLocalePath } from '../../../lib/locale';
 const site = 'https://repero.ai';
 const canonical = new URL('/fr/cas-usages', site).href;
-const alternates = [{ lang: 'en', href: new URL('/en/use-cases', site).href }];
+const alternates = [{ lang: 'en' as const, href: new URL('/en/use-cases', site).href }];
 ---
 <BaseLayout
   lang="fr"

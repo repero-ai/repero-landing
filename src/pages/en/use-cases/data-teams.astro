@@ -2,7 +2,7 @@
 import UseCasePage from '../../../components/UseCasePage.astro';
 const site = 'https://repero.ai';
 const canonical = new URL('/en/use-cases/data-teams', site).href;
-const alternates = [{ lang: 'fr', href: new URL('/fr/cas-usages/data', site).href }];
+const alternates = [{ lang: 'fr' as const, href: new URL('/fr/cas-usages/data', site).href }];
 ---
 <UseCasePage
   lang="en"
@@ -13,8 +13,6 @@ const alternates = [{ lang: 'fr', href: new URL('/fr/cas-usages/data', site).hre
   items={["datasets", "SQL / PySpark / dbt snippets", "business rules", "transformation logic", "analysis notes"]}
   exampleTitle="Concrete example"
   exampleIntro="A data project is easier to ship when the source context, analysis and follow-up work stay together."
-  ogType="website"
-  twitterCard="summary_large_image"
   alternates={alternates}
   exampleSteps={[
     "I receive a new dataset and create a project in Repero AI with the source context.",

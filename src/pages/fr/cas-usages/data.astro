@@ -2,7 +2,7 @@
 import UseCasePage from '../../../components/UseCasePage.astro';
 const site = 'https://repero.ai';
 const canonical = new URL('/fr/cas-usages/data', site).href;
-const alternates = [{ lang: 'en', href: new URL('/en/use-cases/data-teams', site).href }];
+const alternates = [{ lang: 'en' as const, href: new URL('/en/use-cases/data-teams', site).href }];
 ---
 <UseCasePage
   lang="fr"
@@ -13,8 +13,6 @@ const alternates = [{ lang: 'en', href: new URL('/en/use-cases/data-teams', site
   items={["jeux de données", "extraits SQL / PySpark / dbt", "règles métier", "logique de transformation", "notes d’analyse"]}
   exampleTitle="Exemple concret"
   exampleIntro="Un projet data est plus simple à livrer quand le contexte source, l’analyse et le travail à faire restent ensemble."
-  ogType="website"
-  twitterCard="summary_large_image"
   alternates={alternates}
   exampleSteps={[
     "Je reçois un nouveau jeu de données et je crée un projet dans Repero AI avec le contexte source.",
