@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import { getAlternateLocalePath } from '../../lib/locale';
 const site = 'https://repero.ai';
 const canonical = new URL('/en/guide', site).href;
-const alternates = [{ lang: 'fr', href: new URL('/fr/guide', site).href }];
+const alternates = [{ lang: 'fr' as const, href: new URL('/fr/guide', site).href }];
 const sections = [
   ['Start with a project', 'Create a project for a goal, client, topic, or recurring area of work. It becomes the stable place where related conversations and materials remain connected.'],
   ['Add the context you need', 'Bring in documents, useful web sources, notes, and earlier outputs. Keep only the context that helps with the current task.'],

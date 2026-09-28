@@ -9,7 +9,7 @@ import { BRAND_LOGO, DEFAULT_OG_IMAGE, SITE_URL, absoluteUrl } from '../../../co
 const site = SITE_URL;
 const posts = await getPublishedBlogPosts('en');
 const canonical = new URL(buildBlogIndexPath('en'), site).href;
-const alternates = [{ lang: 'fr', href: new URL(buildBlogIndexPath('fr'), site).href }];
+const alternates = [{ lang: 'fr' as const, href: new URL(buildBlogIndexPath('fr'), site).href }];
 const schema = {
   '@context': 'https://schema.org',
   '@type': 'Blog',

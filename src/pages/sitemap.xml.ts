@@ -1,5 +1,5 @@
 import { SITE_URL, absoluteUrl } from '../config/site';
-import { buildBlogIndexPath, buildBlogPostPath, getPublishedBlogPosts } from '../lib/blog';
+import { buildBlogPostPath, getPublishedBlogPosts } from '../lib/blog';
 
 interface Entry {
   path: string;

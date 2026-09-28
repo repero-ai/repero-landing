@@ -2,7 +2,7 @@
 import UseCasePage from '../../../components/UseCasePage.astro';
 const site = 'https://repero.ai';
 const canonical = new URL('/fr/cas-usages/developpeurs', site).href;
-const alternates = [{ lang: 'en', href: new URL('/en/use-cases/developers', site).href }];
+const alternates = [{ lang: 'en' as const, href: new URL('/en/use-cases/developers', site).href }];
 ---
 <UseCasePage
   lang="fr"
@@ -13,8 +13,6 @@ const alternates = [{ lang: 'en', href: new URL('/en/use-cases/developers', site
   items={["snippets de code", "analyse des cahiers des charges", "notes d’architecture", "sessions de débogage", "documentation technique", "prompts et décisions réutilisables"]}
   exampleTitle="Exemple concret"
   exampleIntro="Un projet technique reste exploitable quand l’analyse, la documentation et les tâches vivent au même endroit."
-  ogType="website"
-  twitterCard="summary_large_image"
   alternates={alternates}
   exampleSteps={[
     "J’importe l’analyse business et je crée un projet autour dans Repero AI.",

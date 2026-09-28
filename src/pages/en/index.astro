@@ -6,7 +6,7 @@ import { getAlternateLocalePath } from '../../lib/locale';
 import { frProductScreens } from '../../data/frProductScreens';
 const site = 'https://repero.ai';
 const canonical = new URL('/en', site).href;
-const alternates = [{ lang: 'fr', href: new URL('/fr', site).href }];
+const alternates = [{ lang: 'fr' as const, href: new URL('/fr', site).href }];
 const heroScreen = frProductScreens.find((screen) => screen.id === 'active-context');
 ---
 <BaseLayout

@@ -3,7 +3,7 @@ import SeoIntentPage from '../../components/SeoIntentPage.astro';
 
 const site = 'https://repero.ai';
 const canonical = new URL('/en/european-chatgpt-alternative', site).href;
-const alternates = [{ lang: 'fr', href: new URL('/fr/alternative-europeenne-chatgpt', site).href }];
+const alternates = [{ lang: 'fr' as const, href: new URL('/fr/alternative-europeenne-chatgpt', site).href }];
 ---
 <SeoIntentPage
   lang="en"

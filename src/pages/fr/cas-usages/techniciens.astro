@@ -2,7 +2,7 @@
 import UseCasePage from '../../../components/UseCasePage.astro';
 const site = 'https://repero.ai';
 const canonical = new URL('/fr/cas-usages/techniciens', site).href;
-const alternates = [{ lang: 'en', href: new URL('/en/use-cases/tradespeople', site).href }];
+const alternates = [{ lang: 'en' as const, href: new URL('/en/use-cases/tradespeople', site).href }];
 ---
 <UseCasePage
   lang="fr"
@@ -13,8 +13,6 @@ const alternates = [{ lang: 'en', href: new URL('/en/use-cases/tradespeople', si
   items={["manuels", "documentation d’installation", "notes d’intervention", "documents fournisseurs", "connaissance spécifique aux équipements"]}
   exampleTitle="Exemple concret"
   exampleIntro="Faciliter votre travail chez et avec les clients."
-  ogType="website"
-  twitterCard="summary_large_image"
   alternates={alternates}
   exampleSteps={[
     "J’ouvre le manuel de l’équipement et je crée un projet autour de cet équipement dans Repero AI.",
