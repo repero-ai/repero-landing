@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://repero.ai',
@@ -9,9 +9,9 @@ export default defineConfig({
     format: 'file'
   },
   vite: {
-    cacheDir: '.cache/vite'
+    cacheDir: '.cache/vite',
+    plugins: [tailwindcss()]
   },
-  integrations: [tailwind()],
   output: 'static',
   i18n: {
     defaultLocale: 'en',
