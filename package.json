@@ -17,7 +17,7 @@
     "check": "npm run build && npm run test:blog-build && npm run test:fr-product-pages && npm run test:seo-intent-pages && npm run test:seo-baseline && npm run test:language-switch && npm run verify:no-redirects"
   },
   "dependencies": {
-    "astro": "^6.4.8",
+    "astro": "^7.3.2",
     "sharp": "^0.35.4"
   },
   "devDependencies": {
@@ -27,8 +27,5 @@
   },
   "engines": {
     "node": ">=22.12.0"
-  },
-  "overrides": {
-    "vite": "^7.3.2"
   }
 }
