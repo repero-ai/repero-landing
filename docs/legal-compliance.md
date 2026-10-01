@@ -4,7 +4,7 @@ This document maps Belgian/EU consumer and e-commerce law requirements — and t
 
 The primary legal reference is the Belgian Code of Economic Law (CDE), particularly Book VI (market practices and consumer protection), read together with the EU Consumer Rights Directive it transposes. ACM (the Dutch consumer/markets authority) requirements are treated as an additional merchant-onboarding checklist requested by PAY.nl/ING, not as the primary legal basis — Belgian/EU law governs the actual content of the pages.
 
-Do not copy Dutch, US, or generic SaaS terms without adapting them to Belgian/EU law. Do not invent company facts; unresolved facts are marked `TODO:` in `src/config/company.ts` and rendered visibly (amber highlight) on the pages that use them.
+Do not copy Dutch, US, or generic SaaS terms without adapting them to Belgian/EU law. Do not invent company facts. As of October 2026 every company-identity field in `src/config/company.ts` holds a confirmed value; any future unresolved fact must be marked `TODO:` there (and rendered visibly on the pages that use it) rather than guessed.
 
 ## 1. Permanent company/contact information
 
@@ -14,13 +14,7 @@ Do not copy Dutch, US, or generic SaaS terms without adapting them to Belgian/EU
 | Contact email visible site-wide | Footer now shows `COMPANY_EMAIL_CONTACT` on every page. |
 | Hosting provider disclosure | Included informationally on the Legal Notice page (Cloudflare Pages). Not asserted as a Belgian legal requirement — included for transparency only. |
 
-**Outstanding TODOs** (in `src/config/company.ts`, rendered as visible amber `TODO:` text on `/en/legal`, `/fr/mentions-legales`, `/en/terms`, `/fr/terms`, `/en/privacy`, `/fr/privacy`):
-- Legal company name (exact KBO/BCE registration name)
-- Legal form (BV/SRL, NV/SA, etc.)
-- Registered office address
-- KBO/BCE company registration number
-- VAT number
-- Phone number (recommended, not strictly mandatory)
+**Status (October 2026):** the legal name, legal form (natural person), registered address, KBO/BCE number, VAT number and phone number are all filled in `src/config/company.ts`, and the former `TODO:` placeholders and their amber highlighting are no longer used by any page. The registered address is deliberately shielded from AI crawlers/indexing. Small open cleanup: `COMPANY_LEGAL_NAME` currently starts with a stray tab character, which should be removed so the name renders and copies cleanly.
 
 A "publication director" field was deliberately **not** added — that is a French legal-notice (LCEN) convention with no established Belgian CDE equivalent identified for this type of site. Do not add it without a specific Belgian legal source.
 
@@ -32,6 +26,7 @@ A "publication director" field was deliberately **not** added — that is a Fren
 | --- | --- |
 | Identity of the service provider | Section 1, pulled from `company.ts` |
 | Description of the paid, subscription-based service | Section 2, Section 8 |
+| Subscription lifecycle (monthly renewal, cancellation, upgrade, downgrade, successive changes, confirmation before each change) | Section 8.1–8.6 (updated October 2026 to match the implemented lifecycle — see Section 7 of this document) |
 | Total price, recurring nature, billing period, duration, renewal, cancellation must be disclosed **before purchase**, not only buried in Terms | Section 8 states these must be presented at checkout/point of purchase; the actual checkout implementation lives in `app.repero.ai` — see Section 5 of this document for the checklist that flow must satisfy |
 | 14-day right of withdrawal for consumers (Book VI CDE / Consumer Rights Directive) | Section 9, with an explicit consumer/B2B split (9.1, 9.6) |
 | Express-request mechanism for immediate performance during the withdrawal period | Section 9.3 — requires an explicit, separate request, not implied by purchase or account access |
@@ -40,7 +35,7 @@ A "publication director" field was deliberately **not** added — that is a Fren
 | Governing law / out-of-court redress | Section 17 — Belgian law; the Belgian Consumer Mediation Service is mentioned as an available, optional redress channel, not as a legal or contractual obligation (no source establishes the latter) |
 | No claim that Terms override mandatory consumer rights | Sections 7 and 14 add explicit carve-outs referencing Section 9 |
 
-**Outstanding TODOs:** legal owner name (`COMPANY_LEGAL_NAME`) and registration number in Sections 1, 9.7, 12, 15.
+**Status (October 2026):** the legal owner name and registration number rendered in Sections 1, 9.7, 12 and 15 now come from confirmed values in `company.ts`. Terms Section 8 was rewritten (8.1–8.7) in October 2026 to match the application's actual subscription lifecycle.
 
 **Note on legal classification:** the service is treated conservatively as a *digital/online service contract*, not automatically as "digital content not supplied on a tangible medium" (a distinct category with its own, stricter withdrawal-loss conditions). Before removing this conservative framing, confirm precisely how `app.repero.ai` delivers and licenses the service.
 
@@ -58,7 +53,7 @@ Confirmed by repository grep: no analytics, tracking, or cookie-setting code exi
 
 **TODO — compliance blocker before launch:** `app.repero.ai` (the authenticated application) necessarily uses cookies or similar mechanisms (session, auth) and is a separate codebase not audited here. It is **not** legally separate from Repero AI merely because it lives in a different repository — it is the same service/provider. A dedicated cookie/privacy audit of `app.repero.ai` must be completed, and its findings either folded into this policy or published as an application-specific disclosure, before the Cookie Policy can be considered complete for the service as a whole. The Cookie Policy pages state the scope limitation (website only, application discloses its own cookies within itself); this internal task item is tracked here rather than as a visible admission on the public page.
 
-## 5. Checkout requirements for app.repero.ai (documentation only — not implemented in this repo)
+## 5. Checkout requirements for app.repero.ai (documentation only — not implemented in this repo; see Section 8 for the October 2026 audit status)
 
 Checkout, billing, and subscription management are handled by the application (`app.repero.ai`), outside this repository. This site's Terms (Section 8) commit to these disclosures being made at checkout; this section documents what that flow must actually do to comply with Belgian/EU e-commerce law and to satisfy the ACM/PAY.nl-style merchant checklist. None of this can be satisfied by Terms-of-Service text alone — Belgian/EU law and the ACM checklist both require these facts to be presented at the point of purchase, not only in a separate document.
 
@@ -76,15 +71,40 @@ Checkout, billing, and subscription management are handled by the application (`
 
 This section is a direct cross-reference for the ACM-style checklist requested during PAY.nl/ING onboarding. It restates items above in checklist form and notes where each currently stands.
 
-- [x] Publicly accessible company identity (name, address, registration number, VAT, contact) — page built; **factual values are TODO** in `src/config/company.ts`.
+- [x] Publicly accessible company identity (name, address, registration number, VAT, contact) — `/en/legal`, `/fr/mentions-legales`, values confirmed in `src/config/company.ts`.
+- [x] Publicly accessible pricing — `/en/pricing`, `/fr/tarifs` (prices excl. VAT with a Belgian-VAT example; paid CTAs go to the application's purchase-intent entry, which carries only the plan key).
 - [x] Publicly accessible Terms & Conditions describing the service, pricing model, and subscription mechanics — `/en/terms`, `/fr/terms`.
 - [x] Right of withdrawal / cooling-off information, including the model withdrawal form — `/en/terms` §9, `/fr/terms` §9.
 - [x] Privacy Policy describing data processing — `/en/privacy`, `/fr/privacy`.
 - [x] Cookie Policy — `/en/cookies`, `/fr/politique-cookies` — **scope limited to this website; app.repero.ai audit is a TODO** (see Section 4 above).
-- [ ] Checkout-time price/recurrence/cancellation disclosure, payment-obligation button label, durable-medium order confirmation — **not implemented in this repository**; documented as a requirement for `app.repero.ai` in Section 5 above.
-- [ ] Complete company identity facts (legal name, form, address, KBO/BCE number, VAT number) — **TODO**, business-supplied.
+- [ ] Checkout-time price/recurrence/cancellation disclosure, payment-obligation button label, express-request and acknowledgment capture for immediate performance, durable-medium order confirmation — **not implemented in this repository**; status per item in Section 8 below (two items are open blockers).
 - [ ] Cookie/privacy audit of `app.repero.ai` — **TODO**, out of this repository's scope.
 - [ ] Verification of the model withdrawal form wording and the Belgian Consumer Mediation Service's current contact details against the authoritative SPF Economie text before relying on this content as final — recommended before public launch, since legal text should be checked against the current official source rather than taken solely from this implementation.
+
+## 7. Subscription lifecycle: Terms Section 8 vs the application (October 2026)
+
+Source of truth for behaviour: `ai-platform` (lifecycle actions and their confirmation screens) on top of billing-core's subscription lifecycle contract. Terms Section 8 deliberately describes effects, never provider identifiers.
+
+| Terms clause | Implemented behaviour |
+| --- | --- |
+| 8.1 Monthly renewal | Paid plans are monthly Stripe subscriptions managed by billing-core. |
+| 8.2 Cancellation at end of paid period, withdrawable | Cancellation is scheduled for the period end (access kept until then) and can be undone before it takes effect. |
+| 8.3 Upgrade effective after payment; prorated charge; current plan stays while pending/failed; upgrade keeps a scheduled cancellation | Upgrade is applied immediately only once payment is confirmed (3-D Secure supported); a pending or failed payment leaves the current plan active and lapses; a scheduled cancellation stays in place. The confirmation screen states the prorated charge. |
+| 8.4 Downgrade at next renewal, no immediate charge/refund, withdrawable | Downgrade is scheduled for the period end; "stay on current plan" withdraws it. |
+| 8.5 Successive changes | A later upgrade replaces a scheduled downgrade; a later downgrade replaces a scheduled cancellation. |
+| 8.6 Confirmation before each change | Each action has a confirmation screen describing the exact effect and date. |
+
+**Operational dependency:** these in-app actions are behind the application's lifecycle-actions flag. Terms 8.2 promises in-app cancellation, so that flag must be on whenever paid checkout is on.
+
+## 8. Checkout compliance audit — open blockers (October 2026)
+
+Verified against the current `ai-platform` and `billing-core` repositories:
+
+1. **Express request / acknowledgment for immediate performance (Terms 9.3–9.5) — NOT implemented.** The application's plan confirmation page collects only the buyer type (individual/business). billing-core's Stripe Checkout parameters (`mode=subscription`, automatic tax, billing address, tax-ID collection, return URLs) contain no consent collection, custom text or terms-of-service acceptance. Without this, the Terms promise a mechanism that does not exist and the consumer is exposed to the full 14-day withdrawal right without the proportional-payment basis. **Blocker for consumer sales.**
+2. **Confirmation on a durable medium — NOT implemented / not verified.** The application sends no order or subscription confirmation email (its email outbox is used for account/authentication mail only). billing-core exports invoices to the e-invoicing provider (Peppol) for B2B and relies on Stripe for payment documents; Stripe receipts depend on dashboard settings that are not in code, and in any case do not carry the recurrence, cancellation and withdrawal information the consumer-law confirmation requires. **Blocker for consumer sales.**
+3. Payment-obligation button label: Stripe's hosted Checkout subscription page provides the final order button (default "Subscribe"); the application's own step is labelled "Continue to payment" and is not the order button. Considered acceptable; re-verify on the live Checkout page.
+4. Final price including VAT: shown by Stripe Checkout (automatic tax). The application and the pricing page show prices excl. VAT plus a Belgian-VAT example.
+5. In-app cancellation: depends on the lifecycle-actions flag (see Section 7).
 
 ## Maintenance rules
 

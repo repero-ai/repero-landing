@@ -9,7 +9,7 @@ import {
   COMPANY_REGISTRATION_NUMBER,
   COMPANY_EMAIL_CONTACT
 } from '../../config/company';
-const lastUpdated = "Septembre 2026";
+const lastUpdated = "Octobre 2026";
 const canonical = 'https://repero.ai/fr/terms';
 const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/terms' }];
 ---
@@ -65,7 +65,29 @@ const alternates = [{ lang: 'en' as const, href: 'https://repero.ai/en/terms' }]
 
     <h2>8. Offres, abonnements et paiements</h2>
     <p>{COMPANY_TRADE_NAME} peut proposer des offres gratuites et payantes, sous forme d’abonnement. Avant de finaliser un achat, nous présenterons le prix total (taxes comprises), le caractère récurrent et la périodicité de facturation de l’abonnement, sa durée, les conditions de renouvellement et la procédure de résiliation, dans le cadre du processus de commande au moment de l’achat.</p>
-    <p>Lorsqu’un abonnement se renouvelle automatiquement, les modalités de renouvellement, la procédure de résiliation et la date de prise d’effet de la résiliation vous sont communiquées au moment de l’achat, telles que présentées lors de la commande.</p>
+
+    <h3>8.1 Abonnement mensuel et renouvellement automatique</h3>
+    <p>Les offres payantes sont des abonnements mensuels récurrents. Sauf résiliation conformément à la Section 8.2, chaque période payante est renouvelée automatiquement pour un mois supplémentaire au prix de votre offre, et le paiement correspondant est prélevé à chaque renouvellement.</p>
+
+    <h3>8.2 Résiliation</h3>
+    <p>Vous pouvez résilier votre abonnement à tout moment depuis l’application. La résiliation prend effet à la fin de la période payante en cours : vous conservez l’accès à votre offre jusqu’à cette date et aucune période supplémentaire ne vous est facturée.</p>
+    <p>Une résiliation programmée peut être retirée à tout moment avant qu’elle ne prenne effet ; votre abonnement se poursuit alors normalement.</p>
+
+    <h3>8.3 Passage à une offre supérieure</h3>
+    <p>Un passage à une offre supérieure ne prend effet qu’une fois le paiement correspondant confirmé. Il peut donner lieu à un montant calculé au prorata pour le reste de la période payante en cours, prélevé au moment du changement ; le prix de la nouvelle offre s’applique ensuite à partir du prochain renouvellement. Votre banque peut vous demander d’authentifier le paiement.</p>
+    <p>Tant qu’un paiement ou une authentification supplémentaire est en attente, ainsi qu’en cas d’échec ou d’absence de finalisation dans les délais, votre offre actuelle reste active et inchangée, et le changement ne prend pas effet.</p>
+    <p>Passer à une offre supérieure ne retire pas, en soi, une résiliation déjà programmée : sauf si vous la retirez, votre abonnement prend toujours fin à la fin de la période payante en cours.</p>
+
+    <h3>8.4 Passage à une offre inférieure</h3>
+    <p>Un passage à une offre inférieure prend effet au prochain renouvellement, c’est-à-dire à la fin de la période payante en cours. Aucun montant n’est facturé ni remboursé au moment de la demande, et votre offre actuelle reste active jusqu’à cette date. Un changement programmé vers une offre inférieure peut être retiré avant qu’il ne prenne effet.</p>
+
+    <h3>8.5 Changements successifs</h3>
+    <p>Une nouvelle instruction explicite de modification de votre abonnement peut remplacer un changement antérieur programmé pour l’avenir et incompatible avec elle. Par exemple, un passage ultérieur à une offre supérieure remplace un passage programmé à une offre inférieure, et un passage ultérieur à une offre inférieure remplace une résiliation programmée : votre abonnement se poursuit alors sur la nouvelle offre.</p>
+
+    <h3>8.6 Confirmation avant chaque modification</h3>
+    <p>Avant l’envoi de chaque résiliation, retrait de résiliation, passage à une offre supérieure ou inférieure, l’application affiche un écran de confirmation décrivant son effet exact et, le cas échéant, la date à laquelle il prend effet.</p>
+
+    <h3>8.7 Facturation et traitement des paiements</h3>
     <p>La facturation et le traitement des paiements pour {COMPANY_TRADE_NAME} sont gérés séparément de ce site web, généralement au sein de l’application ou par l’intermédiaire d’un prestataire de paiement tiers. Sauf indication contraire lors de la commande, les frais déjà dus pour une période ne sont pas remboursables, sauf lorsque la loi applicable l’exige ou conformément à la Section 9 (Droit de rétractation).</p>
 
     <h2>9. Droit de rétractation (consommateurs)</h2>

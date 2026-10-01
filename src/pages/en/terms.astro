@@ -9,7 +9,7 @@ import {
   COMPANY_REGISTRATION_NUMBER,
   COMPANY_EMAIL_CONTACT
 } from '../../config/company';
-const lastUpdated = "September 2026";
+const lastUpdated = "October 2026";
 const canonical = 'https://repero.ai/en/terms';
 const alternates = [{ lang: 'fr' as const, href: 'https://repero.ai/fr/terms' }];
 ---
@@ -106,9 +106,47 @@ const alternates = [{ lang: 'fr' as const, href: 'https://repero.ai/fr/terms' }]
     <p>
       {COMPANY_TRADE_NAME} may offer free and paid, subscription-based plans. Before you complete a purchase, we will present the total price (including applicable taxes), the recurring nature and billing period of the subscription, its duration, renewal terms, and how to cancel, as part of the order process at the point of purchase.
     </p>
+
+    <h3>8.1 Monthly subscription and automatic renewal</h3>
     <p>
-      Where a subscription renews automatically, the renewal mechanics, how to cancel, and when cancellation takes effect are disclosed to you at the time of purchase, as shown at checkout.
+      Paid plans are recurring monthly subscriptions. Unless you cancel as described in Section 8.2, each paid period renews automatically for a further month at the price of your plan, and the corresponding payment is collected at each renewal.
     </p>
+
+    <h3>8.2 Cancellation</h3>
+    <p>
+      You can cancel your subscription at any time from the application. Cancellation takes effect at the end of the current paid period: you keep access to your plan until then, and you are not charged for any further period.
+    </p>
+    <p>
+      A scheduled cancellation can be withdrawn at any time before it takes effect; your subscription then simply continues.
+    </p>
+
+    <h3>8.3 Upgrading to a higher plan</h3>
+    <p>
+      An upgrade takes effect only once the payment for it has been confirmed. An upgrade may generate a prorated charge for the remainder of the current paid period, collected at the time of the upgrade; the price of the new plan then applies from the next renewal. Your bank may ask you to authenticate the payment.
+    </p>
+    <p>
+      While an additional payment or authentication is pending, and if it fails or is not completed in time, your current plan stays active and unchanged, and the upgrade does not take effect.
+    </p>
+    <p>
+      Upgrading does not by itself withdraw a cancellation that is already scheduled: unless you withdraw it, your subscription still ends at the end of the current paid period.
+    </p>
+
+    <h3>8.4 Downgrading to a lower plan</h3>
+    <p>
+      A downgrade takes effect at the next renewal, that is, at the end of the current paid period. Nothing is charged or refunded when you request it, and your current plan stays active until then. A scheduled downgrade can be withdrawn before it takes effect.
+    </p>
+
+    <h3>8.5 Successive changes</h3>
+    <p>
+      A new, explicit instruction to change your subscription may replace an earlier change that was scheduled for the future and is incompatible with it. For example, a later upgrade replaces a scheduled downgrade, and a later downgrade replaces a scheduled cancellation, in which case your subscription continues on the new plan.
+    </p>
+
+    <h3>8.6 Confirmation before each change</h3>
+    <p>
+      Before each cancellation, withdrawal of a cancellation, upgrade, or downgrade is sent, the application shows you a confirmation screen describing its exact effect and, where relevant, the date on which it takes effect.
+    </p>
+
+    <h3>8.7 Billing and payment processing</h3>
     <p>
       Billing, invoicing, and payment processing for {COMPANY_TRADE_NAME} are handled separately from this website, typically within the application or through a third-party payment provider. Unless otherwise stated at checkout, fees already due for a period are non-refundable except where required by applicable law or by Section 9 (Right of withdrawal).
     </p>
