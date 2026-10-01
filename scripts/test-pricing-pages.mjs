@@ -1,0 +1,110 @@
+import { existsSync, readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+const dist = join(process.cwd(), 'dist');
+
+function read(path) {
+  const file = join(dist, path);
+  if (!existsSync(file)) throw new Error(`Missing build artifact: ${path}`);
+  return readFileSync(file, 'utf8');
+}
+
+function expect(value, needle, label) {
+  if (!value.includes(needle)) throw new Error(`${label} must include ${needle}`);
+}
+
+function reject(value, needle, label) {
+  if (value.includes(needle)) throw new Error(`${label} must not include ${needle}`);
+}
+
+const fr = read('fr/tarifs.html');
+const en = read('en/pricing.html');
+
+function expectLanguageSwitch(html, target, label) {
+  const chip = /<a class="chip whitespace-nowrap md:ml-1" href="([^"]+)">(FR|EN)<\/a>/.exec(html);
+  if (!chip) throw new Error(`${label} must render a language switch chip`);
+  if (chip[1] !== target) throw new Error(`${label} language switch must point to ${target}, received ${chip[1]}`);
+}
+
+for (const [html, label, path, alternate] of [
+  [fr, 'French pricing', '/fr/tarifs', 'https://repero.ai/en/pricing'],
+  [en, 'English pricing', '/en/pricing', 'https://repero.ai/fr/tarifs']
+]) {
+  expect(html, `rel="canonical" href="https://repero.ai${path}"`, `${label} canonical`);
+  expect(html, `href="${alternate}"`, `${label} alternate`);
+  reject(html, 'API key', `${label} API-key message`);
+  reject(html, 'clé API', `${label} API-key message`);
+  reject(html, '—', `${label} misleading document-space dash`);
+}
+
+expectLanguageSwitch(fr, '/en/pricing', 'French pricing');
+expectLanguageSwitch(en, '/fr/tarifs', 'English pricing');
+
+for (const value of ['0 €', '9 € / mois', '19 € / mois', '49 € / mois', 'HTVA']) expect(fr, value, 'French pricing');
+for (const value of ['€0', '€9 / month', '€19 / month', '€49 / month', 'excl. VAT']) expect(en, value, 'English pricing');
+
+expect(fr, '10,89 € TVAC en Belgique', 'French Starter VAT example');
+expect(fr, '22,99 € TVAC en Belgique', 'French Plus VAT example');
+expect(fr, '59,29 € TVAC en Belgique', 'French Pro VAT example');
+expect(fr, 'Exemple TVAC calculé avec le taux belge de 21 %. Le montant final de TVA est déterminé lors de la souscription selon votre pays et votre statut.', 'French VAT note');
+expect(en, '€10.89 incl. VAT in Belgium', 'English Starter VAT example');
+expect(en, '€22.99 incl. VAT in Belgium', 'English Plus VAT example');
+expect(en, '€59.29 incl. VAT in Belgium', 'English Pro VAT example');
+expect(en, 'VAT-inclusive example calculated using Belgium’s 21% standard rate. Final VAT is determined during subscription based on your country and status.', 'English VAT note');
+
+expect(fr, 'Mode automatique uniquement', 'French Free automatic-only access');
+expect(en, 'Automatic mode only', 'English Free automatic-only access');
+expect(fr, 'Choisissez GPT, Claude ou Mistral ; Repero gère automatiquement le modèle dans la famille choisie.', 'French Starter family choice');
+expect(en, 'Choose GPT, Claude or Mistral; Repero automatically manages the model in the family you choose.', 'English Starter family choice');
+expect(fr, 'Automatique, par famille ou directement par modèle', 'French Plus direct model choice');
+expect(en, 'Automatic, by family or directly by model', 'English Plus direct model choice');
+expect(fr, 'Accès aux modèles de pointe disponibles', 'French Pro flagship access');
+expect(en, 'Access to available flagship models', 'English Pro flagship access');
+expect(fr, 'Automatique, par famille ou directement par modèle', 'French Pro control levels');
+expect(en, 'Automatic, by family or direct model selection', 'English Pro control levels');
+expect(fr, '[1] Modèles de pointe : les modèles les plus avancés consomment davantage de votre enveloppe incluse.', 'French flagship footnote');
+expect(en, '[1] Flagship models: the most advanced models use more of your included usage allowance.', 'English flagship footnote');
+expect(fr, 'Usage IA : découverte', 'French Free usage');
+expect(fr, 'Usage IA : base', 'French Starter usage');
+expect(fr, 'Usage IA : environ 2,5× Starter', 'French Plus usage');
+expect(fr, 'Usage IA : environ 3× Plus', 'French Pro usage');
+expect(en, 'AI usage: discovery', 'English Free usage');
+expect(en, 'AI usage: base', 'English Starter usage');
+expect(en, 'AI usage: about 2.5× Starter', 'English Plus usage');
+expect(en, 'AI usage: about 3× Plus', 'English Pro usage');
+expect(fr, 'pricing-card feature-card', 'French grid cards');
+expect(fr, 'pricing-card__cta btn-primary', 'French grid card CTAs');
+expect(fr, 'Espace documentaire plus confortable', 'French Plus document space');
+expect(fr, 'Espace documentaire étendu', 'French Pro document space');
+expect(en, 'More comfortable document space', 'English Plus document space');
+expect(en, 'Extended document space', 'English Pro document space');
+
+// CTAs: Free -> generic signup (no paid intent); paid plans -> ai-platform purchase-intent entry
+// carrying ONLY the plan key. No prices, VAT, Stripe/billing ids, next or customer identifiers.
+const ctaHrefs = (html) =>
+  [...html.matchAll(/<a class="pricing-card__cta btn-primary" href="([^"]+)"/g)].map((m) => m[1].replaceAll('&amp;', '&'));
+const expectedCtas = [
+  'https://app.repero.ai/auth/signup/',
+  'https://app.repero.ai/chat/billing/subscribe/?plan=starter',
+  'https://app.repero.ai/chat/billing/subscribe/?plan=plus',
+  'https://app.repero.ai/chat/billing/subscribe/?plan=pro'
+];
+for (const [html, label] of [[fr, 'French pricing'], [en, 'English pricing']]) {
+  const found = ctaHrefs(html);
+  if (JSON.stringify(found) !== JSON.stringify(expectedCtas)) {
+    throw new Error(`${label} CTAs must be ${JSON.stringify(expectedCtas)}, received ${JSON.stringify(found)}`);
+  }
+  for (const href of found) {
+    const url = new URL(href);
+    const keys = [...url.searchParams.keys()];
+    if (keys.some((key) => key !== 'plan')) throw new Error(`${label} CTA ${href} must carry only plan`);
+    if (/price|vat|stripe|cus_|next|customer|amount/i.test(url.search)) {
+      throw new Error(`${label} CTA ${href} must not carry commercial or identifier data`);
+    }
+  }
+  if (found.filter((href) => href.includes('/subscribe/')).length !== 3) {
+    throw new Error(`${label} must have exactly three purchase-intent CTAs`);
+  }
+}
+
+console.log('Pricing page build assertions passed.');
