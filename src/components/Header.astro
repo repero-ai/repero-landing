@@ -6,10 +6,27 @@ interface Props {
 
 const { lang, alternateHref } = Astro.props;
 const isEn = lang === 'en';
+const accessLabel = isEn ? 'Access' : 'Accès';
+const links = isEn
+  ? [
+      { href: '/en/use-cases', label: 'Use cases' },
+      { href: '/en/how-it-works', label: 'How it works' },
+      { href: '/en/guide', label: 'Guide' },
+      { href: '/en/blog', label: 'Blog' },
+      { href: '/en/pricing', label: 'Pricing' },
+    ]
+  : [
+      { href: '/fr/cas-usages', label: 'Cas d’usage' },
+      { href: '/fr/comment-ca-marche', label: 'Comment ça marche' },
+      { href: '/fr/guide', label: 'Guide' },
+      { href: '/fr/blog', label: 'Blog' },
+      { href: '/fr/tarifs', label: 'Tarifs' },
+    ];
+const navLinkClass = 'whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white';
 ---
-<header class="page-shell py-5">
-  <div class="flex flex-col gap-3 rounded-2xl border border-slate-800/80 bg-slate-950/60 px-4 py-3 shadow-[0_14px_40px_rgba(0,0,0,0.18)] backdrop-blur md:flex-row md:items-center md:justify-between">
-    <a href={isEn ? '/en' : '/fr'} class="flex items-center gap-3 self-start text-lg font-bold tracking-tight">
+<header class="site-header page-shell py-3 md:py-5" data-site-header>
+  <div class="flex flex-wrap items-center gap-x-2 gap-y-1 rounded-2xl border border-slate-800/80 bg-slate-950/60 px-3 py-2 shadow-[0_14px_40px_rgba(0,0,0,0.18)] backdrop-blur md:flex-nowrap md:justify-between md:gap-3 md:px-4 md:py-3">
+    <a href={isEn ? '/en' : '/fr'} class="mr-auto flex items-center gap-2 text-lg font-bold tracking-tight md:gap-3">
       <img
         src="/brand/flat-web/repero-mark-flat-inverted-transparent.svg"
         alt=""
@@ -20,18 +37,66 @@ const isEn = lang === 'en';
       />
       <span>Repero AI</span>
     </a>
-    <nav class="flex w-full flex-wrap items-center gap-2 text-sm text-slate-300 md:w-auto md:justify-end">
-      <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href={isEn ? '/en/use-cases' : '/fr/cas-usages'}>{isEn ? 'Use cases' : 'Cas d’usage'}</a>
-      {isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/en/how-it-works">How it works</a>}
-      {isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/en/guide">Guide</a>}
-      {isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/en/blog">Blog</a>}
-      {isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/en/pricing">Pricing</a>}
-      {!isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/fr/comment-ca-marche">Comment ça marche</a>}
-      {!isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/fr/guide">Guide</a>}
-      {!isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/fr/blog">Blog</a>}
-      {!isEn && <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="/fr/tarifs">Tarifs</a>}
-      <a class="whitespace-nowrap rounded-full px-3 py-2 hover:bg-slate-800/70 hover:text-white" href="https://app.repero.ai">{isEn ? 'Access' : 'Accès'}</a>
+    <div class="flex items-center gap-1 text-sm text-slate-300 md:hidden">
+      <a class="whitespace-nowrap rounded-full px-2 py-2 hover:bg-slate-800/70 hover:text-white" href="https://app.repero.ai">{accessLabel}</a>
+      <a class="chip whitespace-nowrap" href={alternateHref ?? (isEn ? '/fr' : '/en')} lang={isEn ? 'fr' : 'en'} aria-label={isEn ? 'Version française' : 'English version'}>{isEn ? 'FR' : 'EN'}</a>
+      <button
+        type="button"
+        class="site-menu-toggle ml-1 h-10 w-10 items-center justify-center rounded-full border border-slate-700 text-slate-100 hover:border-sky-500/50 hover:bg-slate-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+        aria-expanded="false"
+        aria-controls="site-nav"
+        aria-label="Menu"
+        data-menu-toggle
+      >
+        <svg class="site-menu-toggle__open h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        <svg class="site-menu-toggle__close h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" /></svg>
+      </button>
+    </div>
+    <nav
+      id="site-nav"
+      class="site-nav w-full flex-col items-stretch gap-1 border-t border-slate-800/80 pt-2 pb-1 text-sm text-slate-300 md:flex md:w-auto md:flex-row md:flex-wrap md:items-center md:justify-end md:gap-2 md:border-0 md:p-0"
+      aria-label={isEn ? 'Main navigation' : 'Navigation principale'}
+      data-site-nav
+    >
+      {links.map((link) => <a class={navLinkClass} href={link.href}>{link.label}</a>)}
+      <a class={`${navLinkClass} hidden md:inline`} href="https://app.repero.ai">{accessLabel}</a>
       <a class="chip whitespace-nowrap md:ml-1" href={alternateHref ?? (isEn ? '/fr' : '/en')}>{isEn ? 'FR' : 'EN'}</a>
     </nav>
   </div>
 </header>
+
+<script>
+  const mobileQuery = window.matchMedia('(min-width: 48rem)');
+
+  document.querySelectorAll<HTMLElement>('[data-site-header]').forEach((header) => {
+    const toggle = header.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+    const nav = header.querySelector<HTMLElement>('[data-site-nav]');
+    if (!toggle || !nav) return;
+
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      header.toggleAttribute('data-menu-open', open);
+    };
+
+    toggle.addEventListener('click', () => {
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+    });
+
+    header.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape' || toggle.getAttribute('aria-expanded') !== 'true') return;
+      setOpen(false);
+      toggle.focus();
+    });
+
+    document.addEventListener('click', (event) => {
+      if (toggle.getAttribute('aria-expanded') === 'true' && !header.contains(event.target as Node)) setOpen(false);
+    });
+
+    header.addEventListener('focusout', (event) => {
+      const next = event.relatedTarget as Node | null;
+      if (next && !header.contains(next) && !mobileQuery.matches) setOpen(false);
+    });
+
+    mobileQuery.addEventListener('change', () => setOpen(false));
+  });
+</script>

@@ -173,6 +173,39 @@
   }
 }
 
+.site-menu-toggle {
+  display: none;
+}
+
+@media (max-width: 47.999rem) {
+  /* Without JavaScript the mobile navigation stays expanded and the toggle stays hidden. */
+  .js .site-menu-toggle {
+    display: inline-flex;
+  }
+
+  .js .site-header:not([data-menu-open]) .site-nav {
+    display: none;
+  }
+
+  .site-nav {
+    display: flex;
+  }
+
+  /* The language switch is already shown next to the menu button on mobile. */
+  .site-nav .chip {
+    display: none;
+  }
+}
+
+.site-menu-toggle__close,
+.site-header[data-menu-open] .site-menu-toggle__open {
+  display: none;
+}
+
+.site-header[data-menu-open] .site-menu-toggle__close {
+  display: block;
+}
+
 @media (min-width: 1024px) {
   .pricing-grid {
     grid-template-rows: auto auto auto auto auto auto auto;
