@@ -20,17 +20,17 @@
     "check": "npm run typecheck && npm run build && npm run test:blog-build && npm run test:fr-product-pages && npm run test:terms-lifecycle && npm run test:pricing-pages && npm run test:seo-intent-pages && npm run test:seo-baseline && npm run test:language-switch && npm run verify:no-redirects"
   },
   "dependencies": {
-    "astro": "^7.3.2",
+    "astro": "^7.4.1",
     "sharp": "^0.35.4"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
-    "@cloudflare/workers-types": "^5.20261006.1",
+    "@astrojs/check": "^0.9.11",
+    "@cloudflare/workers-types": "^5.20261019.1",
     "@tailwindcss/vite": "^4.3.3",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.8.3"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.22.0"
   }
 }
